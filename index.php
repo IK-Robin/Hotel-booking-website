@@ -567,6 +567,50 @@
           <h1 class="merinda">HAMJAIU</h1>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem ipsa placeat qui hic? Esse, ducimus.</p>
         </div>
+        <div class="col-lg-4 col mb-4 text-white p-4">
+          <h5 class="">Quick links</h5>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Rooms</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link " href="#">Facilities</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Contact Us</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#"> About Us</a>
+            </li>
+        </ul>
+        </div>
+        <div class="col-lg-4 col mb-4 text-white p-4">
+         
+          <h5>Follow Us</h5>
+          <a
+            class="d-inline-block text-decoration-none text-white mt-2"
+            href="tel:+01626699"
+          >
+            <i class="bi bi-twitter-x pe-1"></i>Twitter
+          </a><br>
+          <a
+            class="d-inline-block text-decoration-none text-white mt-2"
+            href="tel:+01626699"
+          >
+            <i class="bi bi-facebook pe-1"></i>Facebook
+          </a><br>
+
+          <a
+            class="d-inline-block text-decoration-none text-white mt-2"
+            href="tel:+01626699"
+          >
+          <i class="bi bi-linkedin pe-1"></i> Linkdin</a
+          >
+        </div>
         
       </div>
     </div>
