@@ -44,6 +44,6 @@ input[type="number"] {
 }
 .h-line{
   width: 150px;
-  margin: auto;
+  margin: 16PX  auto auto;
   height: 2px;
 }
