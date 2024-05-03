@@ -20,10 +20,10 @@
                         <a class="nav-link " href="facilities.php">Facilities</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#">Contact Us</a>
+                        <a class="nav-link " href="contact-us.php">Contact Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="#"> About Us</a>
+                        <a class="nav-link " href="about.php"> About Us</a>
                     </li>
                 </ul>
 
