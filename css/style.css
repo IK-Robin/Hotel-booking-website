@@ -1,8 +1,49 @@
-body {
+* {
   font-family: "Poppins", sans-serif;
+}
+
+.custom_bg {
+  background-color: #2ec1ac;
+}
+
+.custom_bg:hover {
+  background-color: #279e8c;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  /* -moz-appearance: textfield; */
 }
 
 .merinda {
   font-family: "Merienda", cursive;
 }
 
+.slider_conterinr {
+  padding: 0 !important;
+}
+
+.avabality_form {
+  margin-top: -50px;
+  z-index: 111;
+  position: relative;
+}
+
+@media screen and (max-width: 575px) {
+  .avabality_form {
+    margin-top: 20px;
+    padding: 0 35px;
+  }
+}
+.h-line{
+  width: 150px;
+  margin: auto;
+  height: 2px;
+}

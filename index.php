@@ -4,54 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMJAIU</title>
+    
+
+<!-- swipper carosal  -->
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <?php require ("./inc/links.php") ?>
-    <!-- <link rel="stylesheet" href=" <?php require ("css/style.css") ?>"> -->
-    <style>
-      * {
-        font-family: "Poppins", sans-serif;
-      }
-
-      .custom_bg {
-        background-color: #2ec1ac;
-      }
-
-      .custom_bg:hover {
-        background-color: #279e8c;
-      }
-
-      /* Chrome, Safari, Edge, Opera */
-      input::-webkit-outer-spin-button,
-      input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      /* Firefox */
-      input[type="number"] {
-        -moz-appearance: textfield;
-      }
-
-      .merinda {
-        font-family: "Merienda", cursive;
-      }
-
-      .slider_conterinr {
-        padding: 0 !important;
-      }
-
-      .avabality_form {
-        margin-top: -50px;
-        z-index: 111;
-        position: relative;
-      }
-
-      @media screen and (max-width: 575px) {
-        .avabality_form {
-          margin-top: 20px;
-          padding: 0 35px;
-        }
-      }
-    </style>
+    
+   <!-- <link rel="stylesheet" href=" <?php require ("css/style.css") ?>"> -->
+    
   </head>
 
   <body class="bg-light">
@@ -561,59 +524,9 @@
     </div>
 
 
-    <div class="container-fluid mt-4">
-      <div class="row bg-dark">
-        <div class="col-lg-4 col mb-4 text-white p-4">
-          <h1 class="merinda">HAMJAIU</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem ipsa placeat qui hic? Esse, ducimus.</p>
-        </div>
-        <div class="col-lg-4 col mb-4 text-white p-4">
-          <h5 class="">Quick links</h5>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Rooms</a>
-            </li>
+    <?php require("components/footer.php"); ?>
 
-            <li class="nav-item">
-                <a class="nav-link " href="#">Facilities</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#">Contact Us</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link " href="#"> About Us</a>
-            </li>
-        </ul>
-        </div>
-        <div class="col-lg-4 col mb-4 text-white p-4">
-         
-          <h5>Follow Us</h5>
-          <a
-            class="d-inline-block text-decoration-none text-white mt-2"
-            href="tel:+01626699"
-          >
-            <i class="bi bi-twitter-x pe-1"></i>Twitter
-          </a><br>
-          <a
-            class="d-inline-block text-decoration-none text-white mt-2"
-            href="tel:+01626699"
-          >
-            <i class="bi bi-facebook pe-1"></i>Facebook
-          </a><br>
-
-          <a
-            class="d-inline-block text-decoration-none text-white mt-2"
-            href="tel:+01626699"
-          >
-          <i class="bi bi-linkedin pe-1"></i> Linkdin</a
-          >
-        </div>
-        
-      </div>
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
       // swiper js
 
