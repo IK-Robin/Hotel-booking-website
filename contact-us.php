@@ -1,164 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HAMJAIU-About US</title>
+    <title>HAMJAIU-CONTACT US</title>
     <?php require ("./inc/links.php") ?>
-    
+
     <style>
-   .box{
-    border-top-color: aqua !important;
-   }
+        .box {
+            border-top-color: aqua !important;
+        }
     </style>
 
-<!-- swipper carosal  -->
+    <!-- swipper carosal  -->
+</head>
 
-   
-   <link
-   rel="stylesheet"
-   href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-   />
-  </head>
-
-  <body class="bg-light">
+<body class="bg-light">
     <div class="container-fluid bg-white">
-      <div class="container">
-        <?php require ("./components/header.php") ?>
-      </div>
+        <div class="container">
+            <?php require ("./components/header.php") ?>
+        </div>
     </div>
     <!-- our rooms  -->
     <div class="my-5 px-4">
-    <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda  ">ABOUT US</h2>
-    <div class="h-line bg-dark mb-5"></div>
-    <p class="text-center mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo animi, ex maxime doloribus non voluptas dignissimos nam facere blanditiis.</p>
+        <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda">CONTACT US</h2>
+        <div class="h-line bg-dark mb-5"></div>
+        <p class="text-center mt-3">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo
+            animi, ex maxime doloribus non voluptas dignissimos nam facere
+            blanditiis.
+        </p>
     </div>
 
-   <div class="container">
-    <div class="row justify-content-center align-items-center py-4">
-        <div class="col-md-5 mb-4 col-lg-6 order-2 order-lg-1 order-md-1 mt-3">
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati illo natus iusto similique numquam, exercitationem maxime soluta nisi quaerat aliquid.</p>
-        </div>
-        <div class="col-md-5 mb-4 col-lg-6  order-1 order-lg-2 order-md-2">
-            <img src="./images/about/about.jpg" class="w-100" alt="">
-        </div>
-    </div>
-   </div>
-    
-   <div class="container m-5">
-    <div class="row ">
-        <div class=" col-md-3  col-lg-3 mb-5 px-4 " >
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-            <img src="./images/about/hotel.svg" width="70px" alt="">
-            <h4 class="mt-3">100+Rooms</h4>
-           </div>
-        </div>
-        <div class=" col-md-6 col-lg-3 " >
-           <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-            <img src="./images/about/customers.svg" width="70px" alt="">
-            <h4 class="mt-3">100+Customer</h4>
-         
-           </div>
-           
-        </div>
-        <div class=" col-md-3  col-lg-3 mb-5 px-4 " >
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-            <img src="./images/about/rating.svg" width="70px" alt="">
-            <h4 class="mt-3">150 + Reviews</h4>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 shadow-none">
+                <div class="bg-white p-3">
+                    <iframe class="w-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.3305135140567!2d89.20562237533656!3d23.77124207865617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe93815479b2f1%3A0xc77c023655d40590!2sHamja%20Innovative%20Unix!5e0!3m2!1sen!2sbd!4v1714639378794!5m2!1sen!2sbd"
+                        height="450" style="border: 0" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <h5>Address</h5>
+                    <i class="bi bi-geo-alt-fill pe-1"></i><a href="https://maps.app.goo.gl/GBGiAR7UkJ5G1NGB7"
+                        class="d-inline block text-decoration-none text-dark" target="_blank">Panti
+                        Kumarkhail,kushtia</a><br>
+
+                    <a class="d-inline block text-decoration-none text-dark" href="tel:+01626699">
+                        <i class="bi bi-telephone-fill"></i> +01626699
+                    </a><br>
+
+                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
+                        <i class="bi bi-twitter-x pe-1"></i>Twitter </a><br />
+                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
+                        <i class="bi bi-facebook pe-1"></i>Facebook </a><br />
+
+                    <a class="d--block text-decoration-none text-dark" href="tel:+01626699">
+                        <i class="bi bi-linkedin pe-1"></i> Linkdin</a>
+                </div>
             </div>
-        </div>
-        <div class=" col-md-3  col-lg-3 mb-5 px-4 " >
-            <div class="bg-white rounded shadow p-4 border-top border-4 text-center box">
-            <img src="./images/about/staff.svg" width="70px" alt="">
-            <h4 class="mt-3">200 + Staffs</h4>
-            </div>
-        </div>
-    </div>
-   </div>
+
+            <div class="col-lg-6 col-md-6 shadow-none">
+                <div class="p-3 mb-3 bg-white rounded">
+                    <h3>Send a message</h3>
+                    <div class="mb-3">
+                        <label for="name_contact" class="form-label">Name</label>
+                        <input type="text" class="form-control shadow-none" id="name_contact"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email_contact" class="form-label">Email</label>
+                        <input type="email" class="form-control shadow-none" id="email_contact"
+                            aria-describedby="emailHelp">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject_contact" class="form-label">Subject</label>
+                        <input type="text" class="form-control shadow-none" id="subject_contact"
+                            aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="subject_contact" class="form-label">Subject</label>
 
 
-   <div class="my-5 px-4">
-    <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda  ">Our Team MEMBERS</h2>
-    <div class="h-line bg-dark mb-5"></div>
-    <!-- add carosal slider -->
-    <div class="container mb-5 py-3 ">
-      
-      <!-- Swiper -->
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper mb-5">
+                        <textarea class="form-control" rows="2" aria-label="With textarea"></textarea>
 
-             <div class="swiper-slide text-center">
-                <img src="./images//about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/IMG_16569.jpeg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images//about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/IMG_16569.jpeg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-      
+                    </div>
 
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
-    </div>
-    <?php require("components/footer.php"); ?>
+                    <button type="button" class="btn  custom_bg me-lg-3 me-2" data-bs-toggle="modal"
+                        data-bs-target="#loginModal">
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+        <?php require ("components/footer.php"); ?>
+</body>
 
-  
-    <!-- swiper js  -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script>
-   var swiper = new Swiper(".mySwiper", {
-    slidesPerView:4,
-            spaceBetween:30,
-            loop:true,
-            autoplay: {
-          delay: 2500,
-          disableOnInteraction: false,
-        },
-      pagination: {
-        el: ".swiper-pagination",
-        dynamicBullets: true,
-      },
-      breakpoints: {
-          // when window width is >= 320px
-          320: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          // when window width is >= 480px
-          480: {
-            slidesPerView: 3,
-            spaceBetween: 30,
-          },
-          // when window width is >= 640px
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          1024:{
-            slidesPerView: 4,
-            spaceBetween: 40,
-          }
-        },
-    });
-    </script>
-
-  </body>
 </html>
