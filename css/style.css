@@ -3,7 +3,7 @@
 }
 
 .custom_bg {
-  background-color: #2ec1ac;
+  background-color: #2ec1ac !important;
 }
 
 .custom_bg:hover {
