@@ -13,7 +13,7 @@
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Rooms</a>
+                        <a class="nav-link" href="rooms.php">Rooms</a>
                     </li>
 
                     <li class="nav-item">
@@ -38,7 +38,7 @@
 
                     <button type="button" class="btn btn-outline-dark shadow-none " data-bs-toggle="modal"
                         data-bs-target="#registerModal">
-                        Register
+                        Register 
                     </button>
 
                 </div>
