@@ -2,100 +2,137 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HAMJAIU-CONTACT US</title>
-    <?php require ("./inc/links.php") ?>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HAMJAIU-CONTACT US</title>
+  <?php require ("./inc/links.php") ?>
 
-    <style>
-        .box {
-            border-top-color: aqua !important;
-        }
-    </style>
+  <style>
+    .box {
+      border-top-color: aqua !important;
+    }
+  </style>
 
-    <!-- swipper carosal  -->
+  <!-- swipper carosal  -->
 </head>
 
 <body class="bg-light">
-    <div class="container-fluid bg-white">
-        <div class="container">
-            <?php require ("./components/header.php") ?>
-        </div>
-    </div>
-    <!-- our rooms  -->
-    <div class="my-5 px-4">
-        <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda">CONTACT US</h2>
-        <div class="h-line bg-dark mb-5"></div>
-        <p class="text-center mt-3">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo
-            animi, ex maxime doloribus non voluptas dignissimos nam facere
-            blanditiis.
-        </p>
-    </div>
-
+  <div class="container-fluid bg-white">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 shadow-none">
-                <div class="bg-white p-3">
-                    <iframe class="w-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.3305135140567!2d89.20562237533656!3d23.77124207865617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe93815479b2f1%3A0xc77c023655d40590!2sHamja%20Innovative%20Unix!5e0!3m2!1sen!2sbd!4v1714639378794!5m2!1sen!2sbd"
-                        height="450" style="border: 0" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                    <h5>Address</h5>
-                    <i class="bi bi-geo-alt-fill pe-1"></i><a href="https://maps.app.goo.gl/GBGiAR7UkJ5G1NGB7"
-                        class="d-inline block text-decoration-none text-dark" target="_blank">Panti
-                        Kumarkhail,kushtia</a><br>
-
-                    <a class="d-inline block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-telephone-fill"></i> +01626699
-                    </a><br>
-
-                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-twitter-x pe-1"></i>Twitter </a><br />
-                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-facebook pe-1"></i>Facebook </a><br />
-
-                    <a class="d--block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-linkedin pe-1"></i> Linkdin</a>
+      <?php require ("./components/header.php") ?>
+    </div>
+  </div>
+  <!-- our rooms  -->
+  <div class="my-5 px-4">
+    <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda">OUR ROOMS</h2>
+    <div class="h-line bg-dark mb-5"></div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!-- add side bar  -->
+      <div class="col-lg-3  ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
+          <div class="container-fluid  d-flex flex-lg-column align-items-stretch">
+            <h6 class="mt-2 ps-3">Filters</h6>
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
+              data-bs-target="#rooms_filter" aria-controls="rooms_filter" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse flex-lg-column mt-2 align-items-stretch " id="rooms_filter">
+              <div class="border bg-light p-3 rounded mb-3">
+                <h6 class="mb-3">CHECK AVAILABILITY</h6>
+                <div class="">
+                  <label for="data_ofbarth" class="form-label">Check In Date
+                  </label>
+                  <input type="date" class="form-control shadow-none" id="data_ofbarth" />
                 </div>
+                <div class="">
+                  <label for="data_ofbarth" class="form-label">Check out Date
+                  </label>
+                  <input type="date" class="form-control shadow-none" id="data_ofbarth" />
+                </div>
+              </div>
+              <div class="border bg-light p-3 rounded mb-3">
+                <h6 class="mb-3">FACILITIES</h6>
+                <div class="mb-2">
+
+                  <input type="checkbox" class="form-check-input shadow-none" id="f1" />
+                  <label for="f1" class="form-label">
+                    Facility one
+                  </label>
+
+                </div>
+                <div class="mb-2">
+                  <input type="checkbox" class="form-check-input shadow-none" id="f2" />
+                  <label for="f2" class="form-label">
+                    Facility two
+                  </label>
+                </div>
+                <div class="mb-2">
+                  <input type="checkbox" class="form-check-input shadow-none" id="f3" />
+                  <label for="f3" class="form-label">
+                    Facility Three
+                  </label>
+                </div>
+                <div class="mb-2">
+                  <input type="checkbox" class="form-check-input shadow-none" id="f4" />
+                  <label for="f4" class="form-label">
+                    Facility Four
+                  </label>
+                </div>
+
+
+              </div>
+              <div class="border bg-light p-3 rounded mb-3">
+                <h6 class="mb-3">Guest</h6>
+                <div class="mb-2 d-flex ">
+                <div class="guest me-3">
+                <label for="audalt" class="form-label">
+                Audalt 
+                  </label>
+                  <input type="number" class="form-control shadow-none" id="audalt" />
+
+                </div>
+                
+                
+                
+                <div class="guest">
+                  
+                <label for="children" class="form-label">
+                Children 
+                  </label>
+                  <input type="number" class="form-control shadow-none" id="children" />
+
+                </div>
+               
+
+                </div>
+
+
+              </div>
+
             </div>
 
-            <div class="col-lg-6 col-md-6 shadow-none">
-                <div class="p-3 mb-3 bg-white rounded">
-                    <h3>Send a message</h3>
-                    <div class="mb-3">
-                        <label for="name_contact" class="form-label">Name</label>
-                        <input type="text" class="form-control shadow-none" id="name_contact"
-                            aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email_contact" class="form-label">Email</label>
-                        <input type="email" class="form-control shadow-none" id="email_contact"
-                            aria-describedby="emailHelp">
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="subject_contact" class="form-label">Subject</label>
-                        <input type="text" class="form-control shadow-none" id="subject_contact"
-                            aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="subject_contact" class="form-label">Subject</label>
 
 
-                        <textarea class="form-control" rows="2" aria-label="With textarea"></textarea>
 
-                    </div>
+          </div>
 
-                    <button type="button" class="btn  custom_bg me-lg-3 me-2" data-bs-toggle="modal"
-                        data-bs-target="#loginModal">
-                        Login
-                    </button>
-                </div>
-            </div>
-        </div>
-        <?php require ("components/footer.php"); ?>
+      </div>
+
+      <div class="col-lg-9">
+        hello
+      </div>
+
+    </div>
+    </nav>
+  </div>
+  </div>
+  </div>
+
+  <?php require ("components/footer.php"); ?>
+
 </body>
 
 </html>
