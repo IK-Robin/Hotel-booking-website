@@ -47,3 +47,10 @@ input[type="number"] {
   margin: 16PX  auto auto;
   height: 2px;
 }
+
+.custom_alert{
+  width: max-content;
+  position: fixed;
+  top: 25px;
+  right: 20px;
+}
