@@ -54,3 +54,15 @@ input[type="number"] {
   top: 25px;
   right: 20px;
 }
+
+#dashbord_menu{
+  position: fixed;
+  height: 100%;
+}
+
+@media  screen and (max-width:992px) {
+  #dashbord_menu{
+height: auto;
+    width: 100%;
+  }
+}

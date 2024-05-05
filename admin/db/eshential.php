@@ -30,4 +30,11 @@ function alert($type,$message){
  }
 
 
+ function adminLogin () {
+    session_start();
+    if(!(isset($_SESSION['adminLogin']) && isset($_SESSION['adminLogin'])==true)){
+        redirect('index.php');
+    }
+ }
+
 ?>

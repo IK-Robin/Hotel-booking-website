@@ -1,4 +1,16 @@
-<?php require("db/phplinks.php");  ?>
+<?php 
+
+require("db/phplinks.php"); 
+session_start();
+
+if ((isset($_SESSION['adminLogin']) && $_SESSION['adminLogin'] == true)) {
+  echo " <script>
+  window.location.href = 'dashbord.php';
+  </script>";
+  exit; // Stop script execution
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,10 +69,18 @@
             $value = [$adimn_data['admin_name'],$adimn_data['admin_pass']];
 
         $res =     select($query,$value,'ss');
-            print_r($res);
+           
 
             if($res->num_rows ==1){
-                echo 'get user';
+                $row = mysqli_fetch_assoc($res);
+
+                $_SESSION['admin_id'] = $row['sr_no'];
+                $_SESSION['adminLogin'] =true;
+
+                redirect('dashbord.php');
+
+            
+
                 alert('success','Login success full');
             }else{
                 alert('error','Wrong credintials');
