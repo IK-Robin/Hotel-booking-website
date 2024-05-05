@@ -38,9 +38,9 @@ adminLogin();
                             </button>
                         </div>
                         <h6 class="card-subtitle mb-2 fw-bold">Site Title</h6>
-                        <p class="card-text"> Content</p>
+                        <p class="card-text" id="site_title"> Content</p>
                         <h6 class="card-subtitle mb-2 fw-bold">About Us</h6>
-                        <p class="card-text"> Content</p>
+                        <p class="card-text" id="site_address"> Content</p>
 
 
                     </div>
@@ -54,7 +54,7 @@ adminLogin();
                 <div class="modal fade" id="generalSetting" data-bs-backdrop="static" data-bs-keyboard="false"
                     tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
-                        <form>
+                        <form id="genereal_from" >
 
 
                             <div class="modal-content">
@@ -66,13 +66,13 @@ adminLogin();
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="Site_Title" class="form-label">Site Title</label>
-                                        <input  name="generel_title" type="text" class="form-control shadow-none" id="Site_itle"
+                                        <input  name="site_title_inp" type="text" class="form-control shadow-none" id="Site_itle"
                                             >
                                     </div>
                                     <div class="mb-3">
                                   
                                     <label for="Site_Title" class="form-label">Address</label>
-                                        <textarea id="site_address" name="generel_address" class="form-control" aria-label="With textarea"></textarea>
+                                        <textarea id="site_address_inp" name="generel_address" class="form-control" aria-label="With textarea"></textarea>
 
                                     </div>
                                 </div>
