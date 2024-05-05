@@ -30,7 +30,7 @@
   <div class="container">
     <div class="row">
       <!-- add side bar  -->
-      <div class="col-lg-3  ">
+      <div class="col-lg-3  " id="filter_section">
         <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
           <div class="container-fluid  d-flex flex-lg-column align-items-stretch">
             <h6 class="mt-2 ps-3">Filters</h6>
@@ -87,25 +87,25 @@
               <div class="border bg-light p-3 rounded mb-3">
                 <h6 class="mb-3">Guest</h6>
                 <div class="mb-2 d-flex ">
-                <div class="guest me-3">
-                <label for="audalt" class="form-label">
-                Audalt 
-                  </label>
-                  <input type="number" class="form-control shadow-none" id="audalt" />
+                  <div class="guest me-3">
+                    <label for="audalt" class="form-label">
+                      Audalt
+                    </label>
+                    <input type="number" class="form-control shadow-none" id="audalt" />
 
-                </div>
-                
-                
-                
-                <div class="guest">
-                  
-                <label for="children" class="form-label">
-                Children 
-                  </label>
-                  <input type="number" class="form-control shadow-none" id="children" />
+                  </div>
 
-                </div>
-               
+
+
+                  <div class="guest">
+
+                    <label for="children" class="form-label">
+                      Children
+                    </label>
+                    <input type="number" class="form-control shadow-none" id="children" />
+
+                  </div>
+
 
                 </div>
 
@@ -118,18 +118,296 @@
 
 
           </div>
-
+          </nav>
       </div>
 
-      <div class="col-lg-9">
-        hello
+
+      <!-- rooms card  -->
+      <div class="col-lg-9 col-md-12">
+
+        <!-- card  -->
+        <div class="card mb-3 border-0 shadow" >
+          <div class="row g-3 p-3 align-items-center">
+            <div class="col-md-5">
+              <img src="./images/rooms/IMG_11892.png" class="w-100 rounded" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-0 ">
+                <h5 class="card-title">Simple Rooms </h5>
+                
+                <!-- frature  -->
+                <div class="features mb-4">
+                  <h6 class="mb-1">Features</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >2 Room</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Bathroom</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Balcony
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >3 Sofa</span
+                  >
+                </div>
+                <!-- Facilites -->
+                <div class="facilities mb-4">
+                  <h6 class="mb-1">Facilites</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Wifi</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Television</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Ac
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Room Hitter</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-align-center">
+                <h6 class="mb-4"> $150 per night</h6>
+                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2"> Book Now</a>
+                <a href="#" class="btn btn-sm w-100  btn-outline-dark shadow-none">More Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- card  -->
+        <div class="card mb-3 border-0 shadow" >
+          <div class="row g-3 p-3 align-items-center">
+            <div class="col-md-5">
+              <img src="./images/rooms/IMG_11892.png" class="w-100 rounded" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-0 ">
+                <h5 class="card-title">Simple Rooms </h5>
+                
+                <!-- frature  -->
+                <div class="features mb-4">
+                  <h6 class="mb-1">Features</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >2 Room</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Bathroom</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Balcony
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >3 Sofa</span
+                  >
+                </div>
+                <!-- Facilites -->
+                <div class="facilities mb-4">
+                  <h6 class="mb-1">Facilites</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Wifi</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Television</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Ac
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Room Hitter</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-align-center">
+                <h6 class="mb-4"> $150 per night</h6>
+                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2"> Book Now</a>
+                <a href="#" class="btn btn-sm w-100  btn-outline-dark shadow-none">More Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- card  -->
+        <div class="card mb-3 border-0 shadow" >
+          <div class="row g-3 p-3 align-items-center">
+            <div class="col-md-5">
+              <img src="./images/rooms/IMG_11892.png" class="w-100 rounded" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-0 ">
+                <h5 class="card-title">Simple Rooms </h5>
+                
+                <!-- frature  -->
+                <div class="features mb-4">
+                  <h6 class="mb-1">Features</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >2 Room</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Bathroom</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Balcony
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >3 Sofa</span
+                  >
+                </div>
+                <!-- Facilites -->
+                <div class="facilities mb-4">
+                  <h6 class="mb-1">Facilites</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Wifi</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Television</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Ac
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Room Hitter</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-align-center">
+                <h6 class="mb-4"> $150 per night</h6>
+                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2"> Book Now</a>
+                <a href="#" class="btn btn-sm w-100  btn-outline-dark shadow-none">More Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- card  -->
+        <div class="card mb-3 border-0 shadow" >
+          <div class="row g-3 p-3 align-items-center">
+            <div class="col-md-5">
+              <img src="./images/rooms/IMG_11892.png" class="w-100 rounded" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-0 ">
+                <h5 class="card-title">Simple Rooms </h5>
+                
+                <!-- frature  -->
+                <div class="features mb-4">
+                  <h6 class="mb-1">Features</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >2 Room</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Bathroom</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Balcony
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >3 Sofa</span
+                  >
+                </div>
+                <!-- Facilites -->
+                <div class="facilities mb-4">
+                  <h6 class="mb-1">Facilites</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Wifi</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Television</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Ac
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Room Hitter</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-align-center">
+                <h6 class="mb-4"> $150 per night</h6>
+                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2"> Book Now</a>
+                <a href="#" class="btn btn-sm w-100  btn-outline-dark shadow-none">More Details</a>
+            </div>
+          </div>
+        </div>
+        <!-- card  -->
+        <div class="card mb-3 border-0 shadow" >
+          <div class="row g-3 p-3 align-items-center">
+            <div class="col-md-5">
+              <img src="./images/rooms/IMG_11892.png" class="w-100 rounded" alt="...">
+            </div>
+            <div class="col-md-5">
+              <div class="card-body p-0 ">
+                <h5 class="card-title">Simple Rooms </h5>
+                
+                <!-- frature  -->
+                <div class="features mb-4">
+                  <h6 class="mb-1">Features</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >2 Room</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Bathroom</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >1 Balcony
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >3 Sofa</span
+                  >
+                </div>
+                <!-- Facilites -->
+                <div class="facilities mb-4">
+                  <h6 class="mb-1">Facilites</h6>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Wifi</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Television</span
+                  >
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Ac
+                  </span>
+                  <span class="badge rounded-pill bg-light text-dark text-wrap"
+                    >Room Hitter</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2 text-align-center">
+                <h6 class="mb-4"> $150 per night</h6>
+                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2"> Book Now</a>
+                <a href="#" class="btn btn-sm w-100  btn-outline-dark shadow-none">More Details</a>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
       </div>
+
+
+
 
     </div>
     </nav>
   </div>
-  </div>
-  </div>
+  
+
+
+
+
+
 
   <?php require ("components/footer.php"); ?>
 
