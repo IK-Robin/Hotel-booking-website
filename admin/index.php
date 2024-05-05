@@ -1,5 +1,4 @@
-<?php require("db/connection.php");  ?>
-<?php require("db/functions.php")  ?>
+<?php require("db/phplinks.php");  ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,6 +61,7 @@
 
             if($res->num_rows ==1){
                 echo 'get user';
+                alert('success','Login success full');
             }else{
                 alert('error','Wrong credintials');
             }
