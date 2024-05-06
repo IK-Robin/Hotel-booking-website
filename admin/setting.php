@@ -32,7 +32,7 @@ adminLogin();
                         <div class="d-flex align-items-center justify-content-between mb-3">
                             <h5 class="card-title"> Genarel Settings</h5>
                             <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
+                            <button  type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
                                 data-bs-target="#generalSetting">
                                 <i class="bi bi-pencil-fill"></i> Edit
                             </button>
@@ -66,7 +66,7 @@ adminLogin();
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label for="Site_Title" class="form-label">Site Title</label>
-                                        <input  name="site_title_inp" type="text" class="form-control shadow-none" id="Site_itle"
+                                        <input id="site_title_inp"  name="site_title_inp" type="text" class="form-control shadow-none" 
                                             >
                                     </div>
                                     <div class="mb-3">
@@ -77,8 +77,8 @@ adminLogin();
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn shadow-none" data-bs-dismiss="modal">Close</button>
-                                    <button  name="generel_submit" type="submit" class="btn custom_bg">Submit</button>
+                                    <button type="button" class="btn shadow-none" data-bs-dismiss="modal" id ="general_close">Close</button>
+                                    <button data-bs-dismiss="modal" id="generel_submit"  name="generel_submit" type="button" class="btn custom_bg">Submit</button>
                                 </div>
                             </div>
 
