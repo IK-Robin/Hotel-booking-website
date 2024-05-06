@@ -6,10 +6,10 @@ const site_address_inp = document.getElementById('site_address_inp');
 const site_title_inp = document.getElementById('site_title_inp');
 const general_close = document.getElementById('general_close');
 const generel_submit = document.getElementById('generel_submit');
-
+const shoutdoWn = document.getElementById('shoutdoWn');
 // Define the XHR object globally
 let xhr;
-
+let data,contactUs;
 // Define booking_get_xhr function globally
 function booking_get_xhr(url) {
     xhr = new XMLHttpRequest();
@@ -20,6 +20,7 @@ function booking_get_xhr(url) {
 general_close.addEventListener('click', (ev) => {
     site_address_inp.value = data.site_address;
     site_title_inp.value = data.site_name;
+    alerts('error', 'No Change Made');
 });
 
 function get_general_data() {
@@ -28,11 +29,23 @@ function get_general_data() {
     xhr.send('getgenerel');
     xhr.onload = function() {
         data = JSON.parse(this.responseText);
-        console.log(data);
+
         site_address.innerText = data.site_address;
         site_title.innerText = data.site_name;
         site_address_inp.value = data.site_address;
         site_title_inp.value = data.site_name;
+ // uncheck the sutdown 
+
+          
+        if(data.site_shoutdown ==0){
+            shoutdoWn.value = 0;
+            shoutdoWn.checked =false;
+           
+        }
+        else{
+            shoutdoWn.value = 1;
+            shoutdoWn.checked =true;
+        }
     }
 }
 // update the data 
@@ -54,7 +67,7 @@ xhr.onload = function (){
          alerts('success', 'Data update Successfull');
          get_general_data();
     }else{
-        alerts('error', 'Data update Failed');
+        alerts('error', 'No Change Made');
     }
 }
 
@@ -64,4 +77,57 @@ xhr.onload = function (){
 
 }
 
-window.onload = get_general_data;
+
+function shoutdoWn_mode (){
+    booking_get_xhr();
+    xhr.send('shoutdown=' + shoutdoWn.value );
+    xhr.onload = function (){
+        get_general_data();
+        console.log(this.responseText);
+        if (this.responseText == 1 && data.site_shoutdown== 1) {
+            
+            alerts('error', 'Site is open');
+            
+        }else{
+            alerts('success', 'Site is shoutdown');
+        }
+       
+    }
+}
+
+shoutdoWn.addEventListener("change",(ev) =>{
+    shoutdoWn_mode();
+});
+
+
+
+// add contact us js 
+
+const contactId = ['address','phone_no','email','facebook','twitter','instragram','linkdin'];
+
+const iframe = document.getElementById('google_map');
+
+function get_contact_us_data(){
+    booking_get_xhr();
+    xhr.send('get_contact_us_data');
+    xhr.onload = function (){
+        contactUs = JSON.parse(this.responseText);
+        console.log(contactUs);
+        for (let i = 0; i < contactId.length; i++) {
+            document.getElementById(contactId[i]).innerText = contactUs[contactId[i]];
+        }
+        iframe.src = contactUs.ifram;
+        console.log(contactUs.ifram);
+    }
+}
+
+
+
+const getid = document.getElementById('getid');
+console.log(getid);
+
+
+window.addEventListener('load',() =>{
+    get_contact_us_data();
+    get_general_data();
+});

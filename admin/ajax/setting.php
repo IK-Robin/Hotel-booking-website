@@ -25,4 +25,27 @@ if( isset($_POST['generel_submit'])){
     
 
 }
+if( isset($_POST['shoutdown'])){
+    $update_data = filtaration($_POST);
+    $sut_value = ($_POST['shoutdown'] == 0) ? 1:0 ;
+
+    
+    $q = "UPDATE `site_title` SET `site_shoutdown`=? WHERE `sr_no` =?";
+    $value = [$sut_value,1];
+    $res = update($q,$value,'ii');
+
+    echo $res;
+    
+
+}
+
+// get contact us data 
+if (isset($_POST['get_contact_us_data'])){
+    $q ="SELECT * FROM `contact_us` WHERE `sr_no`=?";
+    $value  = [1];
+    $res = select($q,$value,'i');
+    $data = mysqli_fetch_assoc($res);
+    $json_data = json_encode($data);
+    echo  $json_data;
+}
 ?>

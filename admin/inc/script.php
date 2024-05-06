@@ -5,22 +5,19 @@
 
 
     <script>
+function alerts(type, message) {
+    const bs_class = (type == 'success') ? 'alert-success' : 'alert-warning';
+    let div = document.createElement('div');
 
-function alerts(type,message){
-
-const  bs_class = (type =='success')? 'alert-success':'alert-warning';
-let div  =document.createElement('div');
-
- div.innerHTML = `<div id="alert_close" class="alert custom_alert ${bs_class}   alert-dismissible fade show" role="alert">
-        <strong class="me-3"> ${message}</strong>
-     <button type="button" class="btn-close" data-bs-dismiss="alert shadow-none" aria-label="Close"></button>
-</div>`;
-
-document.body.append(div);
-// hide the alerm after 3 sec 
-setTimeout(function(){
-    document.getElementById('alert_close').style.display = 'none';
-},3000);
-
+    div.innerHTML = `<div id="alert_close" class="alert ${bs_class} custom_alert alert-dismissible ${message} fade show" role="alert">
+    <strong class="me-3"> ${message}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>`;
+    document.body.append(div);
+    
+    // Remove the alert after 1 second
+    setTimeout(function () {
+        div.remove();
+    }, 1000);
 }
-    </script>
+</script>
