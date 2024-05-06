@@ -245,7 +245,7 @@ adminLogin();
                                         <div class="mb-3">
 
                                         <label for="Site_Title" class="form-label">Google map Link</label>
-                                        <input id="google_map" name="google_map" type="text"
+                                        <input id="google_map_inp" name="google_map_inp" type="text"
                                             class="form-control shadow-none">
 
                                         </div>

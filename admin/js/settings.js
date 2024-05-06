@@ -106,16 +106,39 @@ shoutdoWn.addEventListener("change",(ev) =>{
 const contactId = ['address','phone_no','email','facebook','twitter','instragram','linkdin'];
 
 const iframe = document.getElementById('google_map');
+// const iframeInp = document.getElementById( "google_map");
+
+let c_input =[
+    "c_address",
+    "c_phone",
+    "c_email",
+    "c_facebook",
+    "c_twitter",
+    "c_instragram",
+    "c_link",
+    "google_map_inp"
+  ];
 
 function get_contact_us_data(){
     booking_get_xhr();
     xhr.send('get_contact_us_data');
     xhr.onload = function (){
         contactUs = JSON.parse(this.responseText);
-        console.log(contactUs);
+       console.log(contactUs);
         for (let i = 0; i < contactId.length; i++) {
             document.getElementById(contactId[i]).innerText = contactUs[contactId[i]];
         }
+
+        c_input.forEach((c_inputs,i) =>{
+            const contactInp = document.getElementById(c_inputs);
+         contactUs = Object.values(contactUs);
+
+
+
+            contactInp.value = contactUs[i+1];
+           
+        });
+
         iframe.src = contactUs.ifram;
         console.log(contactUs.ifram);
     }
@@ -123,8 +146,7 @@ function get_contact_us_data(){
 
 
 
-const getid = document.getElementById('getid');
-console.log(getid);
+
 
 
 window.addEventListener('load',() =>{
