@@ -39,4 +39,21 @@ function select($query,$value,$data_type){
 }
 
 
+function update($query,$value,$data_type) {
+  global $conn;
+  $stmt = $conn->prepare($query);
+  if($stmt) {
+    mysqli_stmt_bind_param($stmt,$data_type,...$value);
+    if(mysqli_stmt_execute($stmt)) {
+      $res = mysqli_stmt_affected_rows($stmt);
+    return $res;
+      mysqli_stmt_close($stmt);
+  }
+  else{
+    mysqli_stmt_close($stmt);
+    die("Query Cannot be Executed- update");
+  }
+}
+}
+
 ?>

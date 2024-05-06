@@ -1,4 +1,4 @@
-<div class="container-fluid bg-dark p-3 text-white d-flex justify-content-between align-items-center" style="position: sticky; top: 0; z-index: 1000;">
+<div class="container-fluid bg-dark p-3 text-white d-flex justify-content-between align-items-center" style="position: sticky; top: 0; z-index: 10;">
     <h2 class="mb-0 merinda">HAMJAIU</h2>
     <a href="logout.php" class="btn btn-primary outline-none shadow-none">Logout</a>
 </div>

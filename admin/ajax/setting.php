@@ -13,4 +13,16 @@ if (isset($_POST['getgenerel'])){
 
 }
 
+
+if( isset($_POST['generel_submit'])){
+    $update_data = filtaration($_POST);
+
+    $q = "UPDATE `site_title` SET `site_name`=?,`site_address`=? WHERE `sr_no` =?";
+    $value = [$update_data['stie_title'],$update_data['site_address'],1];
+    $res = update($q,$value,'ssi');
+
+    echo $res;
+    
+
+}
 ?>
