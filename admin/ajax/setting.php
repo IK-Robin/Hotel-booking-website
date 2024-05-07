@@ -49,11 +49,15 @@ if (isset($_POST['get_contact_us_data'])){
     echo  $json_data;
 }
 
+// update contact us 
 if( isset($_POST['contact_upd'])){
 $frm_data = filtaration($_POST);
 
 // extreact the value from post data 
-$contactId = ['address','phone_no','email','facebook','twitter','instragram','linkdin'];
+$contactId = ['address','phone_no','email','facebook','twitter','instragram','linkdin','google_map'];
+
+$q = "UPDATE `contact_us` SET `address`=?, `phone_no`=?, `email`=?, `facebook`=?, `twitter`=?, `instragram`=?, `linkdin`=?, `ifram`=? WHERE `sr_no`=?";
+
 $inp_value = [];
   foreach ($contactId as $key =>$value){
    
@@ -62,6 +66,10 @@ $inp_value = [];
     $inp_value[] = $frm_data[$value];
   }
   $inp_value[] = 1;
+//   print_r($inp_value);
+$res = update($q,$inp_value,'ssssssssi');
+  echo $res;
 
 }
+
 ?>
