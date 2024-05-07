@@ -192,7 +192,7 @@ adminLogin();
                                     <div class="row" id="getid">
                                         <div class="col-lg-6">
                                         <div class="mb-3">
-                                        <label for="Site_Title" class="form-label">Site Title</label>
+                                        <label for="Site_Title" class="form-label">Address</label>
                                         <textarea id="c_address" name="c_address" aria-label="With textarea" class="form-control" rows="" style="height: 38px;"></textarea>
                                     
                                     </div>
@@ -257,7 +257,7 @@ adminLogin();
                                    </div>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn shadow-none" data-bs-dismiss="modal"
+                                    <button type="button" onclick="get_contact_us_data()" class="btn shadow-none" data-bs-dismiss="modal"
                                         id="general_close">Close</button>
                                     <button data-bs-dismiss="modal" name="generel_submit"
                                         type="submit" class="btn custom_bg">Submit</button>
