@@ -108,6 +108,9 @@ const contactId = ['address','phone_no','email','facebook','twitter','instragram
 const iframe = document.getElementById('google_map');
 // const iframeInp = document.getElementById( "google_map");
 
+const contact_from = document.getElementById('contact_from');
+
+
 let c_input =[
     "c_address",
     "c_phone",
@@ -124,27 +127,57 @@ function get_contact_us_data(){
     xhr.send('get_contact_us_data');
     xhr.onload = function (){
         contactUs = JSON.parse(this.responseText);
+       
        console.log(contactUs);
         for (let i = 0; i < contactId.length; i++) {
             document.getElementById(contactId[i]).innerText = contactUs[contactId[i]];
         }
 
+       
+        
         c_input.forEach((c_inputs,i) =>{
             const contactInp = document.getElementById(c_inputs);
-         contactUs = Object.values(contactUs);
+            let inpObjvalue = Object.values(contactUs);
 
 
-
-            contactInp.value = contactUs[i+1];
+            contactInp.value = inpObjvalue[i+1];
            
         });
 
         iframe.src = contactUs.ifram;
-        console.log(contactUs.ifram);
+      
     }
 }
 
+contact_from.addEventListener("submit",ev =>{
+    ev.preventDefault();
+   
 
+    contactInp_update();
+});
+
+
+function contactInp_update (){
+    const index = ['address','phone_no','email','facebook','twitter','instragram','linkdin','google_map'];
+    booking_get_xhr();
+    let dataString = "";
+
+    for(i=0; i<index.length; i++){
+       dataString += index[i] + "=" + document.getElementById(c_input[i]).value +"&";
+    }
+  dataString+= "contact_upd";
+
+xhr.onload =function(){
+   if(this.responseText ==1){
+    alerts('success',"data updated");
+    get_contact_us_data();
+   }else{
+    alerts("error","No change made");
+   }
+}
+
+  xhr.send(dataString);
+}
 
 
 
