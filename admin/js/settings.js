@@ -128,7 +128,7 @@ function get_contact_us_data(){
     xhr.onload = function (){
         contactUs = JSON.parse(this.responseText);
        
-       console.log(contactUs);
+    //    console.log(contactUs);
         for (let i = 0; i < contactId.length; i++) {
             document.getElementById(contactId[i]).innerText = contactUs[contactId[i]];
         }
@@ -182,7 +182,102 @@ xhr.onload =function(){
 
 
 
+// add member section 
+const add_member = document.getElementById('add_member');
+const team_menber_name = document.getElementById('team_menber_name');
+const manage_team_file = document.getElementById('manage_team_file');
+
+
+add_member.addEventListener('submit',(ev) =>{
+    ev.preventDefault();
+   
+    add_member_fun();
+});
+function add_member_fun (){
+    let data = new FormData();
+    data.append("name",team_menber_name.value);
+    data.append('pitcure',manage_team_file.files[0]);
+    data.append('add_member','');
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','./ajax/setting.php', true);
+    
+    xhr.onload= function() {
+        if (this.responseText =='inv_img'){
+            alerts("error","Invalid image format");
+        }else if(this.responseText == 'inv_size'){
+            alerts('error', 'Invalid image format max 2 MB')
+        }else if(this.responseText =='upd_failed'){
+            alerts('error', 'Failed to update');
+        }else{
+            alerts('success', 'Update successful' );
+
+            team_menber_name.value='';
+            manage_team_file.value ='';
+            showTeam_members();
+        }
+    }
+
+    xhr.send(data);
+}
+
+
+
+
+// show all manage teem member 
+
+function showTeam_members(){
+    booking_get_xhr();
+
+
+    let html ="";
+    xhr.onload = function(){
+//    team_data = Object.values( this.responseText);
+let team_data =JSON.parse(this.responseText);
+console.log(
+    team_data
+);
+   team_data.forEach(item =>{
+    
+     html += `<div class="col-lg-3 mb-3">
+          <div class="card">
+              <img src="../images/about/${item.m_img}" class="card-img-top" alt="${item.m_img}">
+              <div class="card-img-overlay text-end">
+                      <button href="#" onclick="delete_members(${item.sr_no})" class="btn btn-danger btn-sm shadow-none"> <i  class="bi bi-trash"></i>Delete  </button>
+              </div>
+              <p class="card-text text-center text-light px-3 py-2 bg-dark">${item.name} </p>
+             
+              
+          </div>
+      </div>`;
+    });
+    document.getElementById('team_member_section').innerHTML = html;
+
+    }
+
+    xhr.send('get_member');
+
+}
+
+
+// delete team member 
+
+function delete_members(val){
+
+showTeam_members
+    booking_get_xhr();
+
+    xhr.onload =function (){
+        console.log(this.responseText);
+        showTeam_members();
+    }
+
+    xhr.send('delete_members=' + val);
+
+}
+
+
 window.addEventListener('load',() =>{
     get_contact_us_data();
     get_general_data();
+    showTeam_members();
 });
