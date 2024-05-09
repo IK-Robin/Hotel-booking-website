@@ -5,12 +5,21 @@ require("admin/db/phplinks.php");
 
 
 
+// featch site title us data 
+
+$contact_data = "SELECT * FROM `site_title` WHERE sr_no =?";
+$val =[1];
+$data = select($contact_data,$val,'i');
+$site_title = mysqli_fetch_assoc($data);
+
+
+
 ?>
 
 <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand merinda" href="#">HAMJAIU</a>
+            <a class="navbar-brand merinda" href="#"><?php echo $site_title['site_name'] ?></a>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">

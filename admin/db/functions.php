@@ -13,10 +13,12 @@ define('ABOUT_FOLDER', 'about/');
 
 function filtaration($data){
     foreach ($data as $key => $value){
-        $data[$key] = trim($value);
-        $data[$key] = stripslashes($value);
-        $data[$key] = htmlspecialchars($value);
-        $data[$key] = strip_tags($value);
+        $data = trim($value);
+        $data = stripslashes($value);
+        $data = htmlspecialchars($value);
+        $data = strip_tags($value);
+
+        $data[$key] = $value;
     }
     return $data;
 }

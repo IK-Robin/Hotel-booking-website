@@ -83,35 +83,31 @@
     <div class="h-line bg-dark mb-5"></div>
     <!-- add carosal slider -->
     <div class="container mb-5 py-3 ">
-      
+  
       <!-- Swiper -->
   <div class="swiper mySwiper">
     <div class="swiper-wrapper mb-5">
 
-             <div class="swiper-slide text-center">
-                <img src="./images//about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/IMG_16569.jpeg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images//about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/IMG_16569.jpeg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
-             <div class="swiper-slide text-center">
-                <img src="./images/about/about.jpg" class="w-100" alt="">
-                <div class="h6">Random Name </div>
-            </div>
+    <?php
+
+$tema_r = selectAll('members');
+$team_res = mysqli_fetch_assoc($data);
+while ($row = mysqli_fetch_assoc($tema_r)) {
+ // Append each row to the array
+
+  echo <<<members
+  <div class="swiper-slide text-center">
+  <img src="./images/about/$row[m_img]" class="w-100" alt="">
+  <div class="h6">$row[name] </div>
+</div>
+
+members;
+}
+
+
+?>
+    
+          
       
 
     </div>

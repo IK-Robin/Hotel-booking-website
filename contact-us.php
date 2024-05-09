@@ -34,31 +34,52 @@
         </p>
     </div>
 
+
+    <?php
+
+// featch contact us data 
+
+$contact_data = "SELECT * FROM `contact_us` WHERE sr_no =?";
+$val =[1];
+$data = select($contact_data,$val,'i');
+$c_res = mysqli_fetch_assoc($data);
+
+
+?>
+
+
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 shadow-none">
                 <div class="bg-white p-3">
                     <iframe class="w-100"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.3305135140567!2d89.20562237533656!3d23.77124207865617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe93815479b2f1%3A0xc77c023655d40590!2sHamja%20Innovative%20Unix!5e0!3m2!1sen!2sbd!4v1714639378794!5m2!1sen!2sbd"
+                    src="<?php echo $c_res['ifram'] ;?>"
                         height="450" style="border: 0" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade">
                     </iframe>
+
+
+                 
+
+
                     <h5>Address</h5>
                     <i class="bi bi-geo-alt-fill pe-1"></i><a href="https://maps.app.goo.gl/GBGiAR7UkJ5G1NGB7"
-                        class="d-inline block text-decoration-none text-dark" target="_blank">Panti
-                        Kumarkhail,kushtia</a><br>
+                        class="d-inline block text-decoration-none text-dark" target="_blank"><?php echo $c_res['address']; ?> </a><br>
 
-                    <a class="d-inline block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-telephone-fill"></i> +01626699
+                    <a class="d-inline block text-decoration-none text-dark" href="tel:+<?php echo $c_res['phone_no']; ?>">
+                        <i class="bi bi-telephone-fill"></i> +<?php echo $c_res['phone_no']; ?>
                     </a><br>
 
-                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
+                    <a class="d-inline-block text-decoration-none text-dark" href="<?php echo $c_res['twitter'];?>">
                         <i class="bi bi-twitter-x pe-1"></i>Twitter </a><br />
-                    <a class="d-inline-block text-decoration-none text-dark" href="tel:+01626699">
+                    <a class="d-inline-block text-decoration-none text-dark" href="<?php echo $c_res['facebook'];?>">
                         <i class="bi bi-facebook pe-1"></i>Facebook </a><br />
 
-                    <a class="d--block text-decoration-none text-dark" href="tel:+01626699">
-                        <i class="bi bi-linkedin pe-1"></i> Linkdin</a>
+                    <a class="d--block text-decoration-none text-dark" href="<?php echo $c_res['linkdin']; ?>">
+                        <i class="bi bi-linkedin pe-1"></i> Linkdin</a><br>
+                    <a class="d--block text-decoration-none text-dark" href="<?php echo $c_res['instragram']; ?>">
+                    <i class="bi bi-instagram"></i> Instragram</a><br>
+
                 </div>
             </div>
 
