@@ -9,18 +9,19 @@ define('ABOUT_IMG_PATH','/images/about/');
 define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/hotel booking system development/images/');
 
 define('ABOUT_FOLDER', 'about/');
+define('CAROSAL_FOLDER','carousel/');
 
 
 function filtaration($data){
-    foreach ($data as $key => $value){
-        $data = trim($value);
-        $data = stripslashes($value);
-        $data = htmlspecialchars($value);
-        $data = strip_tags($value);
+  foreach ($data as $key => $value){
+      $value = trim($value);
+      $value = stripslashes($value);
+      $value = htmlspecialchars($value);
+      $value = strip_tags($value);
 
-        $data[$key] = $value;
-    }
-    return $data;
+      $data[$key] = $value;
+  }
+  return $data;
 }
 
 

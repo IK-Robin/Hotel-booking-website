@@ -21,9 +21,4 @@ function alerts(type, message) {
     }, 1000);
 }
 
-function booking_get_xhr(url) {
-    xhr = new XMLHttpRequest();
-    xhr.open('POST', './ajax/setting.php', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-}
 </script>

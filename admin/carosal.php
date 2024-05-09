@@ -5,7 +5,7 @@ require ('inc/links.php');
 
 adminLogin();
 ?>
- 
+  
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +40,7 @@ adminLogin();
                                 <i class="bi bi-person-plus-fill"></i> Add
                             </button>
                         </div>
-                        <div class="row" id="team_member_section">
+                        <div class="row" id="carosal_img_section">
                            
 
 
