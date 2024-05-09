@@ -32,6 +32,10 @@
                         <a href="user.php"
                                 class="nav-link text-white">User</a>
                         </li>
+                        <li>
+                        <a href="carosal.php"
+                                class="nav-link text-white">Carosal</a>
+                        </li>
                              <li> 
                                 <a href="setting.php"
                                 class="nav-link text-white">Setting</a>
