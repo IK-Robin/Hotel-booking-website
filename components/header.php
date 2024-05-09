@@ -1,7 +1,7 @@
 
 <?php
 
-require("admin/db/phplinks") 
+require("admin/db/phplinks.php"); 
 
 
 
