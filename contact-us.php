@@ -22,7 +22,8 @@
             <?php require ("./components/header.php") ?>
         </div>
     </div>
-    <!-- our rooms  -->
+    <!-- contact us   -->
+    
     <div class="my-5 px-4">
         <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda">CONTACT US</h2>
         <div class="h-line bg-dark mb-5"></div>
