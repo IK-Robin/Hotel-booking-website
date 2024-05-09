@@ -128,7 +128,7 @@ function get_contact_us_data(){
     xhr.onload = function (){
         contactUs = JSON.parse(this.responseText);
        
-    //    console.log(contactUs);
+       console.log(contactUs);
         for (let i = 0; i < contactId.length; i++) {
             document.getElementById(contactId[i]).innerText = contactUs[contactId[i]];
         }

@@ -129,20 +129,20 @@ adminLogin();
                             <div class="col-lg-6">
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Address</h6>
-                                    <p id="address" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="address" class="card-text"></p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Phone</h6>
-                                    <p id="phone_no" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="phone_no" class="card-text"></p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Email</h6>
-                                    <p id="email" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="email" class="card-text"></p>
                                 </div>
 
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Facebook</h6>
-                                    <p id="facebook" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="facebook" class="card-text"></p>
                                 </div>
 
                             </div>
@@ -151,15 +151,15 @@ adminLogin();
 
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Twitter</h6>
-                                    <p id="twitter" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="twitter" class="card-text"></p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Instragram</h6>
-                                    <p id="instragram" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="instragram" class="card-text"></p>
                                 </div>
                                 <div class="mb-4">
                                     <h6 class="cart-subtitle mb-1 fw-bold">Linkdin</h6>
-                                    <p id="linkdin" class="card-text">Lorem ipsum dolor sit amet.</p>
+                                    <p id="linkdin" class="card-text"></p>
                                 </div>
                                 <iframe id="google_map" class="w-100 " height="200"
                                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.3305135140567!2d89.20562237533656!3d23.77124207865617!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fe93815479b2f1%3A0xc77c023655d40590!2sHamja%20Innovative%20Unix!5e0!3m2!1sen!2sbd!4v1714639378794!5m2!1sen!2sbd"
