@@ -62,7 +62,7 @@ let team_data =JSON.parse(this.responseText);
 
    team_data.forEach(item =>{
     
-     html += `<div class="col-lg-3 mb-3">
+     html += `<div class="col-lg-6  mb-3">
           <div class="card">
               <img src="../images/carousel/${item.carosal_img}" class="card-img-top" alt="${item.carosal_img}">
               <div class="card-img-overlay text-end">

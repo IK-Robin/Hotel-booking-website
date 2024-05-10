@@ -29,61 +29,38 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     </div>
     <!-- add slider from swipe js  -->
     <div class="slider_conterinr px-0 m-0">
+
+    
       <div
         style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
         class="swiper mySwiper"
       >
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          <?php
+          
+          $path = CAROSAL_FOLDER;
+          $query = selectAll('carosal');
+
+          while($row = mysqli_fetch_assoc($query) ){
+              
+            echo <<<main_caro
+            <div class="swiper-slide">
             <div class="swiper-zoom-container">
               <img
-                src="./images/carousel/IMG_15372.png"
+                src="./images/$path/$row[carosal_img]"
                 class="w-100 d-block"
               />
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-              <img
-                src="./images/carousel/IMG_40905.png"
-                class="w-100 d-block"
-              />
-            </div>
+          main_caro;
+          }
+          
+          ?>
+          
           </div>
 
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-              <img
-                src="./images/carousel/IMG_62045.png"
-                class="w-100 d-block"
-              />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-              <img
-                src="./images/carousel/IMG_62045.png"
-                class="w-100 d-block"
-              />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-              <img
-                src="./images/carousel/IMG_99736.png"
-                class="w-100 d-block"
-              />
-            </div>
-          </div>
-          <div class="swiper-slide">
-            <div class="swiper-zoom-container">
-              <img
-                src="./images/carousel/IMG_99736.png"
-                class="w-100 d-block"
-              />
-            </div>
-          </div>
-        </div>
+         
+    
       </div>
     </div>
 

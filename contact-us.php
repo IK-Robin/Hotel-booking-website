@@ -103,7 +103,7 @@ $c_res = mysqli_fetch_assoc($data);
                             aria-describedby="emailHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="subject_contact" class="form-label">Subject</label>
+                        <label for="message_contact" class="form-label">Message</label>
 
 
                         <textarea class="form-control" rows="2" aria-label="With textarea"></textarea>
