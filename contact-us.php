@@ -82,43 +82,77 @@ $c_res = mysqli_fetch_assoc($data);
 
                 </div>
             </div>
-
+        
             <div class="col-lg-6 col-md-6 shadow-none">
                 <div class="p-3 mb-3 bg-white rounded">
                     <h3>Send a message</h3>
-                    <div class="mb-3">
-                        <label for="name_contact" class="form-label">Name</label>
-                        <input type="text" class="form-control shadow-none" id="name_contact"
-                            aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="email_contact" class="form-label">Email</label>
-                        <input type="email" class="form-control shadow-none" id="email_contact"
-                            aria-describedby="emailHelp">
-                    </div>
+                    <form method="POST">
 
-                    <div class="mb-3">
-                        <label for="subject_contact" class="form-label">Subject</label>
-                        <input type="text" class="form-control shadow-none" id="subject_contact"
-                            aria-describedby="emailHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="message_contact" class="form-label">Message</label>
-
-
-                        <textarea class="form-control" rows="2" aria-label="With textarea"></textarea>
-
-                    </div>
-
-                    <button type="button" class="btn  custom_bg me-lg-3 me-2" data-bs-toggle="modal"
-                        data-bs-target="#loginModal">
-                        Login
-                    </button>
+                        <div class="mb-3">
+                            <label for="name_contact" class="form-label">Name</label>
+                            <input required type="text" name="name_contact" class="form-control shadow-none" id="name_contact"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email_contact" class="form-label">Email</label>
+                            <input name="email_contact" required type="email" class="form-control shadow-none" id="email_contact"
+                                aria-describedby="emailHelp">
+                        </div>
+    
+                        <div class="mb-3">
+                            <label for="subject_contact" class="form-label">Subject</label>
+                            <input name="sub_contact" required type="text" class="form-control shadow-none" id="subject_contact"
+                                aria-describedby="emailHelp">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message_contact" class="form-label">Message</label>
+    
+    
+                            <textarea  name="mess_contact" requiredname="message_contact" class="form-control" rows="2" aria-label="With textarea"></textarea>
+    
+                        </div>
+    
+                        <button type="submit" name="send" class="btn  custom_bg me-lg-3 me-2" >
+                            Send
+                        </button>
+                    </form>
+                    
                 </div>
             </div>
+
+            <?php
+            
+            
+        if (isset($_POST['send'])){
+          
+            $filter_data = filtaration($_POST);
+            $valus = [$filter_data['name_contact'],$filter_data['email_contact'],$filter_data['sub_contact'],$filter_data['mess_contact']];
+            $q = "INSERT INTO `user_query`( `name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
+            $res = inserts($q,$valus,'ssss');
+            
+            if($res ==1){
+                header("index.php");
+                alert('success','Message send successfully');
+            }else{
+                alert('error','Something worng');
+            }
+            
+            exit(); 
+        }
+        
+        
+            
+            
+            ?>
+
         </div>
     </div>
-        <?php require ("components/footer.php"); ?>
+        <?php
+         require ("components/footer.php"); 
+        
+
+        
+        ?>
 </body>
 
 </html>
