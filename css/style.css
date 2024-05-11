@@ -48,3 +48,9 @@ input[type="number"] {
   height: 2px;
 }
 
+.custom_alert{
+  width: max-content;
+  position: fixed;
+  top: 80px;
+  right: 20px;
+}

@@ -29,8 +29,8 @@
                         </li>
                             
                         <li>
-                        <a href="user.php"
-                                class="nav-link text-white">User</a>
+                        <a href="user_query.php"
+                                class="nav-link text-white">User query</a>
                         </li>
                         <li>
                         <a href="carosal.php"

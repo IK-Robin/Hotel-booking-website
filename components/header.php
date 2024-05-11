@@ -19,7 +19,7 @@ $site_title = mysqli_fetch_assoc($data);
 <header>
     <nav id="navbers" class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand merinda" href="#"><?php echo $site_title['site_name'] ?></a>
+            <a class="navbar-brand merinda" href="index.php"><?php echo $site_title['site_name'] ?></a>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">

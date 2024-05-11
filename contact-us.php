@@ -19,7 +19,7 @@
 <body class="bg-light">
     <div class="container-fluid bg-white">
         <div class="container">
-            <?php require ("./components/header.php") ?>
+            <?php require("components/header.php") ?>
         </div>
     </div>
     <!-- contact us   -->
@@ -124,14 +124,14 @@ $c_res = mysqli_fetch_assoc($data);
             
             
         if (isset($_POST['send'])){
-          
+     
             $filter_data = filtaration($_POST);
             $valus = [$filter_data['name_contact'],$filter_data['email_contact'],$filter_data['sub_contact'],$filter_data['mess_contact']];
             $q = "INSERT INTO `user_query`( `name`, `email`, `subject`, `message`) VALUES (?,?,?,?)";
             $res = inserts($q,$valus,'ssss');
             
             if($res ==1){
-                header("index.php");
+              
                 alert('success','Message send successfully');
             }else{
                 alert('error','Something worng');
