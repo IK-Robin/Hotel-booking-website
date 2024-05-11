@@ -82,12 +82,12 @@ adminLogin();
     <div class="container-fluid">
         <div class="row ">
             <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-                <h4>Carosal</h4>
+                <h4>User Message</h4>
 
 
 
 
-                <!-- Manage ment teem  -->
+                <!-- user query  -->
                 <div class="card shadow border-0 mb-4 mt-5">
                     <div class="card-body">
 

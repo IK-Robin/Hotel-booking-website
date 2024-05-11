@@ -27,6 +27,11 @@
                                 href="rooms.php" class="nav-link text-white">Rooms
                             </a>
                         </li>
+                        <li>
+                        <a
+                                href="features.php" class="nav-link text-white">Features
+                            </a>
+                        </li>
                             
                         <li>
                         <a href="user_query.php"
