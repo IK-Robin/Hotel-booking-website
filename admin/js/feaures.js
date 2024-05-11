@@ -3,6 +3,12 @@ const features_s_name = document.getElementById('features_s');
 const feature_content  = document.getElementById('feature_content');
 
 
+// add facilitiy code 
+const facility_form = document.getElementById('facility_form');
+const facility_s_name = document.getElementById('facility_name');
+const fisilitydes = document.getElementById('fisilitydes');
+const facility_icon = document.getElementById('facility_icon');
+
 let xhr = new XMLHttpRequest();
 
 const file_path ='feature_facility.php';
@@ -61,10 +67,48 @@ get_feature();
 
 // add facilitiy code 
 
+facility_form.addEventListener('submit',(ev ) =>{
+    ev.preventDefault();
+    let form_data = new FormData(); 
+    form_data.append('facility_name',facility_s_name.value);
+    form_data.append('desc',fisilitydes.value);
+    form_data.append('icon',facility_icon.files[0]);
+    form_data.append('add_facility','')
+
+
+    
+    xhr.open('POST', './ajax/' + file_path, true);   
+    
+    xhr.onload= function() {
+        if (this.responseText =='inv_img'){
+            alerts("error","Invalid image format");
+        }else if(this.responseText == 'inv_size'){
+            alerts('error', 'Invalid image format max 2 MB')
+        }else if(this.responseText =='upd_failed'){
+            alerts('error', 'Failed to update');
+        }else{
+            alerts('success', 'Update successful' );
+            // reset the form 
+
+            facility_form.reset();
+           
+        }
+    }
+
+    xhr.send(form_data);
+
+});
 
 
 
+// show facility 
 
+
+function show_facilites (){
+    xhrRequest(file_path,'show_facilit',data =>{
+
+    });
+}
 
 
 
