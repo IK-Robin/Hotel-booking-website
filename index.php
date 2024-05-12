@@ -317,36 +317,39 @@ href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
 
     <div class="container">
       <div class="row justify-content-evenly px-lg-0 px-md-0 px-5">
-        <div
-          class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3"
-        >
-          <img src="./images/facilities//wifi.svg" alt="" />
-          <h5 class="mt-2">Wifi</h5>
-        </div>
-        <div
-          class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3"
-        >
-          <img src="./images/facilities//wifi.svg" alt="" />
-          <h5 class="mt-2">Wifi</h5>
-        </div>
-        <div
-          class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3"
-        >
-          <img src="./images/facilities//wifi.svg" alt="" />
-          <h5 class="mt-2">Wifi</h5>
-        </div>
-        <div
-          class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3"
-        >
-          <img src="./images/facilities//wifi.svg" alt="" />
-          <h5 class="mt-2">Wifi</h5>
-        </div>
-        <div
-          class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3"
-        >
-          <img src="./images/facilities//wifi.svg" alt="" />
-          <h5 class="mt-2">Wifi</h5>
-        </div>
+       
+      
+      <?php 
+    $res = selectAll('facilities');
+    if($res){
+        $facility_path = FACILITIES_IMG_PATH;
+        $count = 0; // Counter variable
+        
+        while($row = mysqli_fetch_assoc($res)){
+            // Break out of the loop if $count reaches 4
+            if($count >= 5){
+                break;
+            }
+            
+            echo <<<facilitys
+            <div class="col-lg-2 col-mb-2 text-center bg-white rounded shadow py-2 my-3">
+                <img class="h-75" style="width: 80% ;" src="$facility_path$row[icon]" alt="$row[name]" />
+                <h5 class="mt-2">$row[name]</h5>
+            </div>
+            facilitys;
+            
+            $count++; // Increment the counter
+        }
+    }
+?>
+
+
+      
+      
+      
+      
+      
+       
         <div class="col-lg-12 text-center mt-2">
           <button
             class="mt-3 btn p-2 text-center m-auto border font-bold merinda d-block"
