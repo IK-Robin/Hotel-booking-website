@@ -31,60 +31,29 @@
     <div class="h-line bg-dark"></div>
     <div class="container mt-5">
         <div class="row ">
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
+          
+        <?php 
+    $res = selectAll('facilities');
+    if($res){
+        $facility_path = FACILITIES_IMG_PATH;
+     while($row  = mysqli_fetch_assoc($res)){
+        echo <<<facilitys
+        <div class=" col-lg-4 col-mb-6 mb-5 px-4">
+        <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
+            <div class="d-flex align-items-center mb-2 " >
+                <img width="40px" src="$facility_path$row[icon]" alt="$row[name]">
+                <h5 class="m-0 ps-2">$row[name]</h5>
             </div>
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
-            </div>
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
-            </div>
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
-            </div>
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
-            </div>
-            <div class=" col-lg-4 col-mb-6 mb-5 px-4">
-                <div class ="bg-white rounded shadow p-4 border-top border-4 border-dark pop">
-                    <div class="d-flex align-items-center mb-2 " >
-                        <img src="./images//facilities/wifi.svg" width="40px" alt="">
-                        <h5 class="m-0 ps-2">WiFi</h5>
-                    </div>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.</p>
-                </div>
-            </div>
+            <p>$row[desc]</p>
+        </div>
+    </div>
+    facilitys;
+     }  
+    }
+        
+        ?>
+
+          
         </div>
     </div>
     
