@@ -116,7 +116,9 @@ adminLogin();
                                 <thead class="sticky-top ">
                                     <tr class="bg-dark text-white">
                                         <th scope="col">SR NO</th>
+                                        <th scope="col">Icon</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Description</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>

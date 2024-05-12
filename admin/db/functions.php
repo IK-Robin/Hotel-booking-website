@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 // fontend url 
-define('SITE_URL','http://172.0.0.1/hotel booking system development');
+define('SITE_URL','http://localhost/hotel%20booking%20system%20development/');
 define('ABOUT_IMG_PATH','/images/about/');
 
 
@@ -11,6 +11,15 @@ define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/hotel booking system d
 define('ABOUT_FOLDER', 'about/');
 define('CAROSAL_FOLDER','carousel/');
 define('FACILITE_FOLDER','facilities/');
+
+
+
+// fontend path 
+
+define('ABOUT_IMG_PATH_F', SITE_URL.'images/about/');
+define('CAROSEL_IMG_PATH', SITE_URL.'images/carousel/');
+define('FACILITIES_IMG_PATH', SITE_URL.'images/facilities/');
+define('ROOM_IMG_PATH', SITE_URL.'images/rooms/');
 
 
 function filtaration($data){

@@ -8,6 +8,7 @@ const facility_form = document.getElementById('facility_form');
 const facility_s_name = document.getElementById('facility_name');
 const fisilitydes = document.getElementById('fisilitydes');
 const facility_icon = document.getElementById('facility_icon');
+const facility_content = document.getElementById('facility_content');
 
 let xhr = new XMLHttpRequest();
 
@@ -23,7 +24,8 @@ features_form.addEventListener('submit', (ev) => {
 function add_features() {
    
 
-    let data = `feature_name=${features_s_name.value} &feature_sub`;
+   
+    let data = `feature_name=${features_s_name.value}&action=add_feature`;
 
     xhrRequest(file_path, data, (data) => {
        if(data ==1){
@@ -61,7 +63,8 @@ function get_feature(){
     });
 }
 // get all feature on load 
-get_feature();
+
+
 
 
 
@@ -88,6 +91,7 @@ facility_form.addEventListener('submit',(ev ) =>{
             alerts('error', 'Failed to update');
         }else{
             alerts('success', 'Update successful' );
+            get_facility();
             // reset the form 
 
             facility_form.reset();
@@ -99,16 +103,45 @@ facility_form.addEventListener('submit',(ev ) =>{
 
 });
 
-
-
 // show facility 
+function get_facility(){
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST','./ajax/' + file_path, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    
+    xhr.onload = function(){
+        facility_content.innerHTML = this.responseText;
+    }
+    
+    xhr.send('get_facility');
+    
+    
+    
+    }
 
 
-function show_facilites (){
-    xhrRequest(file_path,'show_facilit',data =>{
 
-    });
-}
+
+    function delet_facilitey (val){
+        let delet_f_item = `facility_id=${val}`; 
+        xhrRequest(file_path, delet_f_item, (data) => {
+            if(data ==1){
+                features_s_name.value = '';
+                alerts('success','Feature delete successfull');
+                get_facility();
+               }else if(data== 'room_added') {
+                alerts('error','This feature is already added in a room');
+               }
+               
+               else{
+                alerts('error','Something went wrong');
+               }
+        });
+    }
+    
+
+
+
 
 
 
@@ -133,7 +166,11 @@ function xhrRequest(url, send, onloades) {
     xhr.send(send);
 }
  
-
+window.onload = () =>{
+   
+    get_feature();
+    get_facility();
+}
 
 
 
