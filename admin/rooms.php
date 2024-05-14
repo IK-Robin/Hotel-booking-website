@@ -13,218 +13,189 @@ adminLogin();
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Features </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rooms </title>
 
 
 </head>
 
 <body>
 
-    <?php require ("inc/header.php"); ?>
-    <!-- feature content  -->
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+<?php require ("inc/header.php"); ?>
+<!-- feature content  -->
+<div class="container-fluid">
+    <div class="row ">
+        <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+
+
+
+
+            <!-- general settings  -->
+            <div class="card shadow-sm border-0 mb-4">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h5 class="card-title"> Rooms</h5>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
+                            data-bs-target="#rooms-s">
+                            <i class="bi bi-pencil-fill"></i> Add
+                        </button>
+                    </div>
+
+
+                    <div class="table-responsive-md" style="height:450px; overflow-y:scroll">
+
+                        <table class="table table-hover border">
+                            <thead class="sticky-top ">
+                                <tr class="bg-dark text-white">
+                                    <th scope="col">SR NO</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Area</th>
+                                    <th scope="col">Guests</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Quentity</th>
+                                    <th scope="col">status</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="rooms_data">
+
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal facility settings  -->
+<div class="modal fade " id="rooms-s" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form id="rooms_form" autocomplite="off">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Rooms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="rooms_name" class="form-label"> Name</label>
+                            <input id="rooms_name" name="rooms_name" type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="rooms_desc" class="form-label"> Description</label>
+                            <input id="rooms_desc" name="rooms_desc" type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="area" class="form-label"> Area</label>
+                            <input min="1"  required value="1" id="area" name="area" type="number" class="form-control shadow-none">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="price" class="form-label">Price</label>
+                            <input min="1"  required value="1" id="price" name="price" type="number" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="quentity" class="form-label">Quentity</label>
+                            <input min="1"  required value="1" id="quentity" name="quentity" type="number"
+                                class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="audlt" class="form-label">Audlt (Max)</label>
+                            <input id="audlt" required value="1" name="audlt" type="number" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="children" class="form-label">Children (Max)</label>
+                            <input id="children" required value="1" name="children" type="number" class="form-control shadow-none">
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <h5 class="modal-title" id="staticBackdropLabel">Features</h5>
+
+                            <?php
+
+                            $select_facilitey = selectAll('feature_facility');
+
+                            while ($opt = mysqli_fetch_assoc($select_facilitey)) {
+                                echo <<<formfacility
+                                        
+                                            <div calss="form-check">
+                                            <label class="form-check-label  mx-3 mt-3" >
+                                            <input name="feature" class="form-check-input shadow-none" type="checkbox" value="$opt[id]"> $opt[name]
+                                            </label>
+                                            </div>
+                                    formfacility;
+                            }
+
+
+                            ?>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <h5 class="modal-title" id="staticBackdropLabel">Facility</h5>
+
+                            <?php
+
+                            $select_facilitey = selectAll('facilities');
+
+                            while ($opt = mysqli_fetch_assoc($select_facilitey)) {
+                                echo <<<formfacility
+                                        <div calss="form-check">
+                                            
+                                            <label class="form-check-label  mx-3 mt-3" >
+                                            <input name="facilities" class="form-check-input shadow-none" type="checkbox" value="$opt[id]"> $opt[name]
+                                            </label>
+                                            </div>
+                                    
+                                    formfacility;
+                            }
+
+
+                            ?>
+                        </div>
+                    </div>
                 
 
-
-
-                <!-- general settings  -->
-                <div class="card shadow-sm border-0 mb-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="card-title"> Features</h5>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
-                                data-bs-target="#features-s">
-                                <i class="bi bi-pencil-fill"></i> Add
-                            </button>
-                        </div>
-                    </div>
                 </div>
 
 
-        <!-- add featuers table  -->
-             <!-- user query  -->
-             <div class="card shadow border-0 mb-4 mt-5">
-                    <div class="card-body"> <div class="table-responsive-md" style="height:450px; overflow-y:scroll">
-
-                            <table class="table table-hover border">
-                                <thead class="sticky-top ">
-                                    <tr class="bg-dark text-white">
-                                        <th scope="col">SR NO</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="feature_content">
-                                    
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-
-
+                <div class="modal-footer">
+                    <button type="button" class="btn shadow-none" data-bs-dismiss="modal"
+                        id="features_close">Close</button>
+                    <button  id="rooms_submit" name="rooms_submit" type="submit"
+                        class="btn custom_bg">Add</button>
                 </div>
-
             </div>
 
-
-
-
-
-
-
-
-
-
-        </div>
+        </form>
     </div>
+</div>
 
-    <!-- add facility section  -->
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-10 ms-auto p-4 overflow-hidden">
-               
+<?php
+require ("inc/script.php");
 
+?>
 
-
-                <!-- facility settings  -->
-                <div class="card shadow-sm border-0 mb-4">
-                    <div class="card-body">
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <h5 class="card-title">Facility </h5>
-                            <!-- Button trigger modal -->
-                            <button type="button" class="btn btn-outline-dark shadow-none" data-bs-toggle="modal"
-                                data-bs-target="#facility-s">
-                                <i class="bi bi-pencil-fill"></i> Add
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-
-        <!-- add featuers table  -->
-
-             <div class="card shadow border-0 mb-4 mt-5">
-                    <div class="card-body"> <div class="table-responsive-md" style="height:450px; overflow-y:scroll">
-
-                            <table class="table table-hover border">
-                                <thead class="sticky-top ">
-                                    <tr class="bg-dark text-white">
-                                        <th scope="col">SR NO</th>
-                                        <th scope="col">Icon</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="facility_content">
-                                    
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-        </div>
-    </div>
-
-    <!-- Modal feature  settings  -->
-    <div class="modal fade" id="features-s" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form id="features_form">
-
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Features</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="features_s" class="form-label">Features Name</label>
-                            <input id="features_s" name="features_s" type="text" class="form-control shadow-none">
-                        </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn shadow-none" data-bs-dismiss="modal"
-                            id="features_close">Close</button>
-                        <button data-bs-dismiss="modal" name="feature_sub" type="sibmit"
-                            class="btn custom_bg">Add</button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-    <!-- Modal facility settings  -->
-    <div class="modal fade" id="facility-s" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <form id="facility_form">
-
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Facility</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <label for="facility_name" class="form-label"> Name</label>
-                            <input id="facility_name" name="facility_name" type="text" class="form-control shadow-none">
-                        </div>
-                        <div class="mb-3">
-                            <label for="fisilitydes" class="form-label"> Discription</label>
-
-                            <textarea id="fisilitydes" name="fisilitydes"  class="form-control"
-                                            aria-label="With textarea"></textarea>
-                            
-                        </div>
-                        <div class="mb-3">
-                                        <label for="facility_icon" class="form-label">Chose icon</label>
-                                        <input accept="image/*" class="form-control" type="file" id="facility_icon"
-                                            name="facility_icon">
-                                    </div>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn shadow-none" data-bs-dismiss="modal"
-                            id="features_close">Close</button>
-                        <button data-bs-dismiss="modal" name="facility_submit" type="submit" class="btn custom_bg">Add</button>
-                    </div>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-    <?php
-    require ("inc/script.php");
-
-    ?>
-    <script src="./js/feaures.js"></script>
+<script src="./js/rooms.js"></script>
 
 </body>
 
