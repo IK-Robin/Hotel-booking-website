@@ -192,10 +192,12 @@ adminLogin();
 
 <?php
 require ("inc/script.php");
+require ("inc/links.php");
 
 ?>
 
 <script src="./js/rooms.js"></script>
+
 
 </body>
 
