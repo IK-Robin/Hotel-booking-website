@@ -158,6 +158,7 @@ rooms_form_edit.addEventListener("submit", (ev) => {
   formdata.append("quentity", rooms_form_edit.elements["quentity"].value);
   formdata.append("audlt", rooms_form_edit.elements["audlt"].value);
   formdata.append("children", rooms_form_edit.elements["children"].value);
+  formdata.append("hidden_id", rooms_form_edit.elements["hidden_id"].value);
 
   let featurs = [];
 
@@ -196,7 +197,7 @@ rooms_form_edit.addEventListener("submit", (ev) => {
           alerts("success", "Rooms Added Successfully");
        
           get_all_rooms();
-          var myModalEl = document.getElementById("rooms-s");
+          var myModalEl = document.getElementById("rooms_edit");
           var modal = bootstrap.Modal.getInstance(myModalEl);
           modal.hide();
         }
