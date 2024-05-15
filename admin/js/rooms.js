@@ -183,7 +183,7 @@ rooms_form_edit.addEventListener("submit", (ev) => {
   formdata.append("featurs", JSON.stringify(featurs));
   formdata.append("facility", JSON.stringify(facility));
   // Append additional data
-  formdata.append("add_rooms", "");
+  formdata.append("edit_rooms", "");
 
   xhr.open("POST", file_path, true);
 
