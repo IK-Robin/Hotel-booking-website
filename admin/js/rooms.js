@@ -1,6 +1,8 @@
 const rooms_form = document.getElementById("rooms_form");
 const rooms_data = document.getElementById("rooms_data");
 const file_path = "./ajax/rooms.php";
+const rooms_form_edit = document.getElementById('rooms_form_edit');
+
 
 rooms_form.addEventListener("submit", (ev) => {
   ev.preventDefault();
@@ -64,6 +66,79 @@ rooms_form.addEventListener("submit", (ev) => {
   };
   xhr.send(formdata);
 });
+// rooms from edit 
+
+
+function featch_rooms_data(val){
+
+
+
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", file_path, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+
+xhr.onload = function(){
+  if (xhr.status === 200) {
+   
+     var data = JSON.parse(xhr.responseText);
+     console.log(xhr.responseText);
+     const roomData = data.roomsData;
+     const features = data.features;
+     const facilitey = data.facility;
+     rooms_form_edit.elements['hidden_id'].value = roomData.id;
+    // Handle successful response here
+    
+  rooms_form_edit.elements["rooms_name"].value =roomData.rooms_names;
+
+  rooms_form_edit.elements["area"].value =roomData.area;
+  rooms_form_edit.elements["price"].value =roomData.price;
+  rooms_form_edit.elements["quentity"].value =roomData.quentity;
+  rooms_form_edit.elements["audlt"].value =roomData.audlt;
+  rooms_form_edit.elements["children"].value =roomData.children;
+
+
+   let featurs = [];
+
+  let slectAllfeature = rooms_form_edit.elements["feature"];
+  let selectAllFacilities = rooms_form_edit.elements["facilities"];
+  slectAllfeature.forEach((ele) => {
+    // console.log(ele);
+  features.forEach(item =>{
+    if (item == ele.value) {
+      ele.checked = true;
+    }
+  })
+  });
+
+
+  selectAllFacilities.forEach((ele) => {
+    // console.log(ele);
+  facilitey.forEach(item =>{
+    if (item == ele.value) {
+      ele.checked = true;
+    }
+  })
+  });
+    
+   }
+}
+
+ 
+ 
+  xhr.send('get_rooms_data='+ val);
+
+  // pusht the facility
+
+
+
+
+
+}
+
+
+// add active and inactive rooms 
 
 
 
@@ -75,8 +150,22 @@ rooms_form.addEventListener("submit", (ev) => {
 
 
 
+function rooms_active_inactive(id,val) {
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST",file_path, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
+    xhr.onload = function (){
+        if (this.status == 200 && this.response==1){
+            alerts('success','Room is close');
+            get_all_rooms();
+        }else{
+            alerts('error','Room is open');
+        }
+    }
 
+    xhr.send('toggle_statue='+id +'&value=' + val);
+};
 
 
 
@@ -94,6 +183,7 @@ function get_all_rooms() {
 
     xhr.send('get_all_rooms');
 };
+
 
 
 window.onload =get_all_rooms();

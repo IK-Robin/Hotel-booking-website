@@ -190,6 +190,120 @@ adminLogin();
     </div>
 </div>
 
+<!-- Modal input settings  -->
+<div class="modal fade " id="rooms_edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <form id="rooms_form_edit" autocomplite="off">
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Rooms</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <label for="rooms_name" class="form-label"> Name</label>
+                            <input id="rooms_name" name="rooms_name" type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="rooms_desc" class="form-label"> Description</label>
+                            <input id="rooms_desc" name="rooms_desc" type="text" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="area" class="form-label"> Area</label>
+                            <input min="1"  required  id="area" name="area" type="number" class="form-control shadow-none">
+                        </div>
+
+                        <div class="mb-3 col-md-6">
+                            <label for="price" class="form-label">Price</label>
+                            <input min="1"  required  id="price" name="price" type="number" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="quentity" class="form-label">Quentity</label>
+                            <input min="1"  required  id="quentity" name="quentity" type="number"
+                                class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="audlt" class="form-label">Audlt (Max)</label>
+                            <input id="audlt" required  name="audlt" type="number" class="form-control shadow-none">
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <label for="children" class="form-label">Children (Max)</label>
+                            <input id="children" required  name="children" type="number" class="form-control shadow-none">
+                        </div>
+
+
+
+
+
+
+                    </div>
+
+                    <div class="row">
+                        <div class="mb-3 col-md-6">
+                            <h5 class="modal-title" id="staticBackdropLabel">Features</h5>
+
+                            <?php
+
+                            $select_facilitey = selectAll('feature_facility');
+
+                            while ($opt = mysqli_fetch_assoc($select_facilitey)) {
+                                echo <<<formfacility
+                                        
+                                            <div calss="form-check">
+                                            <label class="form-check-label  mx-3 mt-3" >
+                                            <input name="feature" class="form-check-input shadow-none" type="checkbox" value="$opt[id]"> $opt[name]
+                                            </label>
+                                            </div>
+                                    formfacility;
+                            }
+
+
+                            ?>
+                        </div>
+                        <div class="mb-3 col-md-6">
+                            <h5 class="modal-title" id="staticBackdropLabel">Facility</h5>
+
+                            <?php
+
+                            $select_facilitey = selectAll('facilities');
+
+                            while ($opt = mysqli_fetch_assoc($select_facilitey)) {
+                                echo <<<formfacility
+                                        <div calss="form-check">
+                                            
+                                            <label class="form-check-label  mx-3 mt-3" >
+                                            <input name="facilities" class="form-check-input shadow-none" type="checkbox" value="$opt[id]"> $opt[name]
+                                            </label>
+                                            </div>
+                                    
+                                    formfacility;
+                            }
+
+
+                            ?>
+                        </div>
+                    </div>
+                            
+
+                </div>
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn shadow-none" data-bs-dismiss="modal"
+                        id="features_close">Close</button>
+                    <button  id="rooms_submit" name="rooms_submit" type="submit"
+                        class="btn custom_bg">Add</button>
+                </div>
+            </div>
+                            <input type="hidden" name="hidden_id">
+        </form>
+    </div>
+</div>
+
 <?php
 require ("inc/script.php");
 require ("inc/links.php");

@@ -32,7 +32,7 @@ if (isset($_POST['add_rooms'])) {
         die('server error');
     }
 
-    $room_features = "INSERT INTO `room_featurs`(`rm_id`, `featurs_id`) VALUES (?,?)";
+    $room_features = "INSERT INTO `room_featurs`(`room_id`, `featurs_id`) VALUES (?,?)";
     // check for facility 
     if ($stmt = mysqli_prepare($conn, $room_features)) {
         foreach ($featurs as $f) {
@@ -62,9 +62,9 @@ if (isset($_POST['get_all_rooms'])) {
     $data = "";
     while ($row = mysqli_fetch_assoc($res)) {
    if($row['status'] ==1){
-    $status= "<button onclick='toggleStatus($row[id],0)' class='btn btn-dark btn-sm shadow-none'> Active</button>";
+    $status= "<button onclick='rooms_active_inactive($row[id],0)' class='btn btn-dark btn-sm shadow-none'> Active</button>";
    }else{
-    $status= "<button onclick='toggleStatus($row[id],1)' class='btn btn-warning btn-sm shadow-none'> Inactive</button>";
+    $status= "<button onclick='rooms_active_inactive($row[id],1)' class='btn btn-warning btn-sm shadow-none'> Inactive</button>";
    }
         $data .= "
         <tr>
@@ -76,13 +76,65 @@ if (isset($_POST['get_all_rooms'])) {
         <td> $row[quentity] </td>
         <td> $row[audlt] </td>
         <td> $status </td>
-        <td> <button class='btn btn-dark btn-sm shadow-none'> More</button>  </td>
+        <td> <button data-bs-toggle='modal'data-bs-target='#rooms_edit' onclick='featch_rooms_data($row[id])' class='btn btn-dark btn-sm shadow-none'> More</button>  </td>
         </tr>"
 
         ;
         $i++;
     }
     echo $data;
+}
+
+if(isset($_POST['toggle_statue'])){
+    $frm_data = filtaration($_POST) ;
+    $q ="UPDATE `rooms` SET `status`=? WHERE id=?";
+
+    $values = [$frm_data['value'],$frm_data['toggle_statue']];
+    
+ $res = update($q,$values,'ii');
+ if($res){
+    echo 1;
+ }else{
+    echo 0;
+ }
+}
+
+
+// get all data for rooms image 
+
+if(isset($_POST['get_rooms_data'])){
+    $frm_data = filtaration($_POST);
+ 
+    $q1 = select("SELECT * FROM `rooms` WHERE `id` =?",[$frm_data['get_rooms_data']],'i');
+    $q22 = select("SELECT * FROM `room_featurs` WHERE `room_id` =?",[$frm_data['get_rooms_data']],'i');
+
+    $q3 = select("SELECT * FROM `room_facility`WHERE `rooms_id` =?",[$frm_data['get_rooms_data']],'i');
+    $rooms = mysqli_fetch_assoc($q1);
+    
+    // get features data ;
+   
+
+  
+
+
+    $featuresarray =[];
+    if(mysqli_num_rows($q22)>0){
+       while ($row = mysqli_fetch_assoc($q22)){
+        
+        $featuresarray[] = $row['featurs_id'];
+       }
+    }
+    
+    $facility_arr =[];
+    if(mysqli_num_rows($q3)>0){
+        while($row = mysqli_fetch_assoc($q3)){
+            $facility_arr[]= $row['facility_id'];
+        }
+    }
+    $data = ["roomsData" =>$rooms, "features" => $featuresarray, "facility" =>  $facility_arr];
+    echo json_encode($data);
+
+
 }
 
 ?>
