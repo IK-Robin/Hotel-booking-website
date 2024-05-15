@@ -144,6 +144,70 @@ xhr.onload = function(){
 
 
 
+// edit rooms data 
+
+rooms_form_edit.addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  let xhr = new XMLHttpRequest();
+  let formdata = new FormData();
+  formdata.append("rooms_name", rooms_form_edit.elements["rooms_name"].value);
+
+  formdata.append("area", rooms_form_edit.elements["area"].value);
+  formdata.append("rooms_desc", rooms_form_edit.elements["rooms_desc"].value);
+  formdata.append("price", rooms_form_edit.elements["price"].value);
+  formdata.append("quentity", rooms_form_edit.elements["quentity"].value);
+  formdata.append("audlt", rooms_form_edit.elements["audlt"].value);
+  formdata.append("children", rooms_form_edit.elements["children"].value);
+
+  let featurs = [];
+
+  let slectAllfeature = rooms_form_edit.elements["feature"];
+  let selectAllFacilities = rooms_form_edit.elements["facilities"];
+  slectAllfeature.forEach((ele) => {
+    // console.log(ele);
+    if (ele.checked) {
+      featurs.push(ele.value);
+    }
+  });
+  // facilitey append
+  let facility = [];
+  selectAllFacilities.forEach((ele) => {
+    // console.log(ele);
+    if (ele.checked) {
+      facility.push(ele.value);
+    }
+  });
+
+  // pusht the facility
+
+  formdata.append("featurs", JSON.stringify(featurs));
+  formdata.append("facility", JSON.stringify(facility));
+  // Append additional data
+  formdata.append("add_rooms", "");
+
+  xhr.open("POST", file_path, true);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === XMLHttpRequest.DONE) {
+      if (xhr.status === 200) {
+        // Handle successful response here
+        console.log(xhr.responseText);
+        if (xhr.responseText == 1) {
+          alerts("success", "Rooms Added Successfully");
+       
+          get_all_rooms();
+          var myModalEl = document.getElementById("rooms-s");
+          var modal = bootstrap.Modal.getInstance(myModalEl);
+          modal.hide();
+        }
+      } else {
+        // Handle error response here
+        console.error("Request failed:", xhr.status);
+      }
+    }
+  };
+  xhr.send(formdata);
+});
 
 
 
