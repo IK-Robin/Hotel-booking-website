@@ -313,7 +313,7 @@ adminLogin();
 <!-- Modal -->
 <div class="modal fade" id="rooms_add_images" tabindex="-1" aria-labelledby="rooms_add_imagesLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
-    <div class="modal-content">
+    <div class="modal-content modal-lg">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="">Upload Image</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
