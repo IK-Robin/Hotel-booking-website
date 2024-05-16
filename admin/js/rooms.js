@@ -262,7 +262,7 @@ rooms_image.addEventListener('submit',(ev) =>{
 function add_pictures (){
   let data = new FormData();
 
-  data.append('rooms_img',rooms_image.files[0]);
+  data.append('rooms_img',rooms_image.elements['rooms_image_inp'].files[0]);
   data.append('rooms_id', rooms_image.elements['rooms_id_img'].value);
   let xhr = new XMLHttpRequest();
   xhr.open('POST',file_path, true);
@@ -278,7 +278,7 @@ function add_pictures (){
           alerts('success', 'Update successful' );
 
 
-          add_carosal_img.value ='';
+
           
       }
   }
