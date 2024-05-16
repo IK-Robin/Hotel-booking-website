@@ -225,4 +225,57 @@ if (isset($_POST['edit_rooms'])) {
 }
 
 
+// add rooms images 
+
+if(isset($_POST['rooms_img_add'])){
+    $rooms_img = filtaration($_POST);
+
+    
+ $img_upload =   uploadImage($_FILES['rooms_img'],ROOMS_FOLDER);
+
+ if($img_upload =='inv_img'){
+    echo 'inv_img';
+ }else if($img_upload =='upd_failed'){
+    echo 'upd_failed';
+ }else if($img_upload =='inv_size'){
+    echo 'inv_size';
+ }else{
+    
+
+    $values =[$img_upload,$rooms_img['rooms_id']];
+    $q = "INSERT INTO `rooms_images`(`img_name`, `rooms_id`) VALUES (?,?)";
+    $res = inserts($q,$values,'si');
+    echo $res;
+ }
+
+}
+
+
+// get all rooms data  
+if (isset($_POST['show_rooms_img'])) {
+    
+    $res = select("SELECT * FROM `rooms_images` WHERE rooms_id=? ",[$_POST['show_rooms_img']],'i');
+
+    $font_end_path = ROOM_IMG_PATH;
+    $i = 1;
+    $data = "";
+    // while ($row = mysqli_fetch_assoc($res)) {
+        
+    //     $data .= "
+    //     <tr>
+    //     <td> $i </td>
+    //     <td> <img src='$font_end_path$row[img_name]'></td>
+      
+    //     <td>
+    //     <button title='Edit' data-bs-toggle='modal'data-bs-target='#rooms_edit' onclick='featch_rooms_data($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-pencil-square'></i></button>  
+    //     </td>
+    
+    //     </tr>"
+
+    //     ;
+    //     $i++;
+    // }
+    echo $data;
+}
+
 ?>
