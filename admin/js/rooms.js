@@ -287,8 +287,29 @@ function add_pictures (){
   xhr.send(data);
 }
 
+
 function add_rooms_id_to_image(val ){
   rooms_image.elements['rooms_id_img'].value =val;
+  show_all_rooms_image(val);
 };
+
+// show all rooms image 
+
+function show_all_rooms_image(val){
+  
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST",file_path, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function (){
+        if (this.status == 200){
+            // rooms_data.innerHTML =this.responseText;
+        }
+    }
+
+    xhr.send('show_rooms_img =' +val);
+};
+
+
 
 window.onload =get_all_rooms();
