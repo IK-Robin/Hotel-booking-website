@@ -264,6 +264,7 @@ function add_pictures (){
 
   data.append('rooms_img',rooms_image.elements['rooms_image_inp'].files[0]);
   data.append('rooms_id', rooms_image.elements['rooms_id_img'].value);
+  data.append('rooms_img_add','');
   let xhr = new XMLHttpRequest();
   xhr.open('POST',file_path, true);
   
