@@ -175,7 +175,7 @@ if (isset($_POST['edit_rooms'])) {
     $delete_features = deletes("DELETE FROM `room_featurs` WHERE room_id=?", [$rooms_data['hidden_id']], 'i');
 
     if ($delete_facility && $delete_features) {
-
+        $flag = 1;
     }
 
 

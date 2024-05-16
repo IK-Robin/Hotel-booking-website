@@ -197,8 +197,8 @@ rooms_form_edit.addEventListener("submit", (ev) => {
           alerts("success", "Rooms Added Successfully");
        
           get_all_rooms();
-          var myModalEl = document.getElementById("rooms_edit");
-          var modal = bootstrap.Modal.getInstance(myModalEl);
+          let myModalEl = document.getElementById("rooms_edit");
+          let modal = bootstrap.Modal.getInstance(myModalEl);
           modal.hide();
         }
       } else {
