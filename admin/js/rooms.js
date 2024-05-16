@@ -279,7 +279,7 @@ function add_pictures (){
           alerts('success', 'Update successful' );
 
 
-
+          show_all_rooms_image(rooms_image.elements['rooms_id_img'].value);
           
       }
   }
@@ -295,20 +295,26 @@ function add_rooms_id_to_image(val ){
 
 // show all rooms image 
 
-function show_all_rooms_image(val){
-  
-    let xhr = new XMLHttpRequest();
-    xhr.open("POST",file_path, true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+function show_all_rooms_image(val) {
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", file_path, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-    xhr.onload = function (){
-        if (this.status == 200){
-            // rooms_data.innerHTML =this.responseText;
-        }
-    }
+  xhr.onload = function() {
+      if (this.status == 200) {
+          console.log(this.responseText);
+          // Handle the response here (e.g., update the UI)
+          document.getElementById('rooms_img').innerHTML = this.responseText;
+      }
+  }
 
-    xhr.send('show_rooms_img =' +val);
+  xhr.onerror = function() {
+      console.error("Error occurred during AJAX request.");
+  }
+
+  xhr.send('show_rooms_imgs=' + encodeURIComponent(val));
 };
+
 
 
 
