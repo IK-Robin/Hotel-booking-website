@@ -79,7 +79,7 @@ if (isset($_POST['get_all_rooms'])) {
         <td> 
         <button title='Edit' data-bs-toggle='modal'data-bs-target='#rooms_edit' onclick='featch_rooms_data($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-pencil-square'></i></button>  
 
-        <button title='Add Images' data-bs-toggle='modal'data-bs-target='#rooms_add_images' onclick='featch_rooms_data($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-images'></i></button>  
+        <button title='Add Images' data-bs-toggle='modal'data-bs-target='#rooms_add_images' onclick='add_rooms_id_to_image($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-images'></i></button>  
         </td>
         </tr>"
 

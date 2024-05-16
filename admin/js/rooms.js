@@ -3,6 +3,8 @@ const rooms_data = document.getElementById("rooms_data");
 const file_path = "./ajax/rooms.php";
 const rooms_form_edit = document.getElementById('rooms_form_edit');
 
+const rooms_image  =  document.getElementById('rooms_image');
+
 
 rooms_form.addEventListener("submit", (ev) => {
   ev.preventDefault();
@@ -249,6 +251,43 @@ function get_all_rooms() {
     xhr.send('get_all_rooms');
 };
 
+// add pictures to the rooms 
 
+rooms_image.addEventListener('submit',(ev) =>{
+  ev.preventDefault();
+  add_pictures();
+});
+
+// add rooms image
+function add_pictures (){
+  let data = new FormData();
+
+  data.append('rooms_img',rooms_image.files[0]);
+  data.append('rooms_id', rooms_image.elements['rooms_id_img'].value);
+  let xhr = new XMLHttpRequest();
+  xhr.open('POST',file_path, true);
+  
+  xhr.onload= function() {
+      if (this.responseText =='inv_img'){
+          alerts("error","Invalid image format");
+      }else if(this.responseText == 'inv_size'){
+          alerts('error', 'Invalid image format max 2 MB')
+      }else if(this.responseText =='upd_failed'){
+          alerts('error', 'Failed to update');
+      }else{
+          alerts('success', 'Update successful' );
+
+
+          add_carosal_img.value ='';
+          
+      }
+  }
+
+  xhr.send(data);
+}
+
+function add_rooms_id_to_image(val ){
+  rooms_image.elements['rooms_id_img'].value =val;
+};
 
 window.onload =get_all_rooms();
