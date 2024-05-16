@@ -252,30 +252,73 @@ if(isset($_POST['rooms_img_add'])){
 
 
 // get all rooms data  
-if (isset($_POST['show_rooms_img'])) {
-    
-    $res = select("SELECT * FROM `rooms_images` WHERE rooms_id=? ",[$_POST['show_rooms_img']],'i');
+if (isset($_POST['show_rooms_imgs'])) {
+    $frm_data = filtaration($_POST);
 
-    $font_end_path = ROOM_IMG_PATH;
+    $res = select("SELECT * FROM `rooms_images` WHERE `rooms_id`=?",[$frm_data['show_rooms_imgs']],'i');
+   
     $i = 1;
     $data = "";
-    // while ($row = mysqli_fetch_assoc($res)) {
-        
-    //     $data .= "
-    //     <tr>
-    //     <td> $i </td>
-    //     <td> <img src='$font_end_path$row[img_name]'></td>
-      
-    //     <td>
-    //     <button title='Edit' data-bs-toggle='modal'data-bs-target='#rooms_edit' onclick='featch_rooms_data($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-pencil-square'></i></button>  
-    //     </td>
-    
-    //     </tr>"
+    if(mysqli_num_rows($res)>=0){
+        while($row = mysqli_fetch_assoc($res)){
+            $font_end_path = ROOM_IMG_PATH;
+ 
 
-    //     ;
-    //     $i++;
-    // }
-    echo $data;
+        
+        $data .= "
+        <tr>
+        <td> $i </td>
+        <td> <img src='$font_end_path$row[img_name]'></td>
+      
+        <td>
+
+        <div class='form-check'>
+        
+        <label>
+        <input class='form-check-input' type='radio' name='flexRadioDefault' id='radio_default'>
+        set as thumbnil
+        </label>
+      </div>
+        </td>
+        <td>
+        <button type='button' onclick='delete_modal_img($row[sr_no])' class='btn btn-danger btn-sm'><i class='bi bi-trash3-fill'></i></button>
+        </td>
+        </tr>"
+
+        ;
+        $i++;
+        
+        }}
+        echo  $data;
 }
+
+// // get all rooms data  
+// if (isset($_POST['show_rooms_img '])) {
+//     $frm_data = filtaration($_POST);
+//     echo 'robin';
+//     $res = select("SELECT * FROM `rooms_images` WHERE `rooms_id`=?",[$frm_data['show_rooms_img']],'i');
+
+
+//     // $font_end_path = ROOM_IMG_PATH;
+//     // $i = 1;
+//     // $data = "";
+//     // while ($row = mysqli_fetch_assoc($res)) {
+        
+//     //     $data .= "
+//     //     <tr>
+//     //     <td> $i </td>
+//     //     <td> <img src='$font_end_path$row[img_name]'></td>
+      
+//     //     <td>
+//     //     <button title='Edit' data-bs-toggle='modal'data-bs-target='#rooms_edit' onclick='featch_rooms_data($row[id])' class='btn btn-primary btn-sm shadow-none'> <i class='bi bi-pencil-square'></i></button>  
+//     //     </td>
+    
+//     //     </tr>"
+
+//     //     ;
+//     //     $i++;
+//     // }
+    
+// }
 
 ?>
