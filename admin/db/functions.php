@@ -11,6 +11,7 @@ define('UPLOAD_IMAGE_PATH', $_SERVER['DOCUMENT_ROOT'] . '/hotel booking system d
 define('ABOUT_FOLDER', 'about/');
 define('CAROSAL_FOLDER','carousel/');
 define('FACILITE_FOLDER','facilities/');
+define('ROOMS_FOLDER','rooms/');
 
 
 
