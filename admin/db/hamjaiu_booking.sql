@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 11, 2024 at 11:23 AM
+-- Generation Time: May 16, 2024 at 06:33 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -106,8 +106,9 @@ CREATE TABLE `facilities` (
 --
 
 INSERT INTO `facilities` (`id`, `name`, `desc`, `icon`) VALUES
-(1, 'sdf', 'sdf', '1715419068_softwar.png'),
-(2, 'sdf', 'sdfs', '1715419208_softwar.png');
+(19, 'WiFi', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.', '1715487043_wifi.svg'),
+(22, 'Meeting rooms', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.', '1715487540_handshake-solid.svg'),
+(27, 'mettings', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati repellendus aliquam deserunt earum fuga ut.', '1715828380_icon-sewer-hook-up.svg');
 
 -- --------------------------------------------------------
 
@@ -125,9 +126,9 @@ CREATE TABLE `feature_facility` (
 --
 
 INSERT INTO `feature_facility` (`id`, `name`) VALUES
-(10, 'fsdf'),
-(11, 'sdfsad'),
-(12, 'sdfasd');
+(12, 'sdfasd'),
+(16, 'dsfsd'),
+(17, 'sdfsdaf');
 
 -- --------------------------------------------------------
 
@@ -152,6 +153,61 @@ INSERT INTO `members` (`sr_no`, `name`, `m_img`) VALUES
 (9, 'talha', '1715160008_nonstop client application.png'),
 (11, 'ali', '1715160077_tech.jpg'),
 (12, 'jayed', '1715160620_the s3com.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms`
+--
+
+CREATE TABLE `rooms` (
+  `id` int(11) NOT NULL,
+  `rooms_names` varchar(150) NOT NULL,
+  `area` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `quentity` int(11) NOT NULL,
+  `audlt` int(11) NOT NULL,
+  `children` int(11) NOT NULL,
+  `status` int(1) NOT NULL DEFAULT 1,
+  `rooms_desc` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `rooms_images`
+--
+
+CREATE TABLE `rooms_images` (
+  `sr_no` int(11) NOT NULL,
+  `img_name` varchar(200) NOT NULL,
+  `thumb` tinyint(1) NOT NULL DEFAULT 0,
+  `rooms_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_facility`
+--
+
+CREATE TABLE `room_facility` (
+  `sr_no` int(11) NOT NULL,
+  `rooms_id` int(11) NOT NULL,
+  `facility_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `room_featurs`
+--
+
+CREATE TABLE `room_featurs` (
+  `sr_no` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `featurs_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -250,6 +306,35 @@ ALTER TABLE `members`
   ADD PRIMARY KEY (`sr_no`);
 
 --
+-- Indexes for table `rooms`
+--
+ALTER TABLE `rooms`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rooms_images`
+--
+ALTER TABLE `rooms_images`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `rooms_id` (`rooms_id`);
+
+--
+-- Indexes for table `room_facility`
+--
+ALTER TABLE `room_facility`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `facility_id` (`facility_id`),
+  ADD KEY `room_id` (`rooms_id`);
+
+--
+-- Indexes for table `room_featurs`
+--
+ALTER TABLE `room_featurs`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `featurs_id` (`featurs_id`),
+  ADD KEY `room_ids` (`room_id`);
+
+--
 -- Indexes for table `site_title`
 --
 ALTER TABLE `site_title`
@@ -287,19 +372,43 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `facilities`
 --
 ALTER TABLE `facilities`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `feature_facility`
 --
 ALTER TABLE `feature_facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `members`
 --
 ALTER TABLE `members`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `rooms`
+--
+ALTER TABLE `rooms`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `rooms_images`
+--
+ALTER TABLE `rooms_images`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `room_facility`
+--
+ALTER TABLE `room_facility`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+
+--
+-- AUTO_INCREMENT for table `room_featurs`
+--
+ALTER TABLE `room_featurs`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `site_title`
@@ -312,6 +421,30 @@ ALTER TABLE `site_title`
 --
 ALTER TABLE `user_query`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `rooms_images`
+--
+ALTER TABLE `rooms_images`
+  ADD CONSTRAINT `rooms_images_ibfk_1` FOREIGN KEY (`rooms_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `room_facility`
+--
+ALTER TABLE `room_facility`
+  ADD CONSTRAINT `facility_id` FOREIGN KEY (`facility_id`) REFERENCES `facilities` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_id` FOREIGN KEY (`rooms_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `room_featurs`
+--
+ALTER TABLE `room_featurs`
+  ADD CONSTRAINT `featurs_id` FOREIGN KEY (`featurs_id`) REFERENCES `feature_facility` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `room_ids` FOREIGN KEY (`room_id`) REFERENCES `rooms` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
