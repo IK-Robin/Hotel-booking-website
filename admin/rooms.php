@@ -322,7 +322,7 @@ adminLogin();
       <form id="rooms_image">
                             <div class="mb-3">
                                 <label for="rooms_image_inp" class="form-label">Chose Image</label>
-                                <input accept="image/*" class="form-control" type="file" id="rooms_image_inp"
+                                <input required accept="image/*" class="form-control" type="file" id="rooms_image_inp"
                                     name="rooms_image_inp">
                             </div>
                             <input type="hidden" name="rooms_id_img">
@@ -338,14 +338,14 @@ adminLogin();
 <table class="table table-hover border">
     <thead class="sticky-top">
         <tr class="bg-dark text-white sticky-top">
-            <th scope="col">SR NO</th>
+          
             <th scope="col" width="60%">Image</th>
             <th scope="col">Thumb</th>
             <th scope="col">Delete</th>
            
         </tr>
     </thead>
-    <tbody id="rooms_img">
+    <tbody id="rooms_img" class='text-center'>
 
     </tbody>
 </table>
@@ -354,6 +354,8 @@ adminLogin();
     </div>
   </div>
 </div>
+
+
 
 
 
