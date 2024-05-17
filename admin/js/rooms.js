@@ -6,6 +6,7 @@ const rooms_form_edit = document.getElementById('rooms_form_edit');
 const rooms_image  =  document.getElementById('rooms_image');
 
 
+
 rooms_form.addEventListener("submit", (ev) => {
   ev.preventDefault();
   let xhr = new XMLHttpRequest();
@@ -277,7 +278,7 @@ function add_pictures (){
           alerts('error', 'Failed to update');
       }else{
           alerts('success', 'Update successful' );
-
+          rooms_image.reset();
 
           show_all_rooms_image(rooms_image.elements['rooms_id_img'].value);
           
@@ -316,6 +317,69 @@ function show_all_rooms_image(val) {
 };
 
 
+function thumb_rooms_img(srno,rooms_id){
+
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", file_path, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+  xhr.onload = function() {
+    if (this.status == 200) {
+      alerts('success','set Thumbnil successfull');
+      show_all_rooms_image(rooms_id);
+    }
+  }
+  xhr.send('room_sr_no='+srno + '&room_id=' + rooms_id +'&add_tumb');
+
+}
+
+
+// delete room images 
+function delete_rooms_img (val,rooms_id){
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST", file_path, true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onload = function() {
+    if (this.status == 200) {
+        console.log(this.responseText);
+        show_all_rooms_image(rooms_id);
+    }
+}
+
+  xhr.send('delete_rooms_img='+ encodeURIComponent(val));
+}
+
+
+// delets rooms 
+function delete_rooms(value) {
+  if (confirm('Are you sure you want to remove this room?')) {
+    console.log(value);
+
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", file_path, true);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    xhr.onload = function() {
+      if (this.status == 200) {
+        alerts('success', 'Room Successfully Deleted');
+        get_all_rooms();
+        // Hide the modal if necessary
+        // var myModalEl = document.getElementById("rooms_delete");
+        // var modal = bootstrap.Modal.getInstance(myModalEl);
+        // modal.hide();
+      }
+    };
+
+    xhr.send('delete_rooms=' + encodeURIComponent(value));
+  }
+}
+
+
+// get rooms_id
+function delete_rooms_id (val){
+
+  delete_rooms( val);
+}
 
 
 window.onload =get_all_rooms();
