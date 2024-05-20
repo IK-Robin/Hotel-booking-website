@@ -1,7 +1,7 @@
 <?php
 require('connection.php');
 // fontend url 
-define('SITE_URL','http://localhost/hotel%20booking%20system%20development/');
+define('SITE_URL','http://localhost/hotel booking system development/');
 define('ABOUT_IMG_PATH','/images/about/');
 
 
