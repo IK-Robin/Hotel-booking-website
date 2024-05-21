@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 16, 2024 at 06:33 AM
+-- Generation Time: May 21, 2024 at 06:23 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -157,6 +157,28 @@ INSERT INTO `members` (`sr_no`, `name`, `m_img`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `registre`
+--
+
+CREATE TABLE `registre` (
+  `Id` int(11) NOT NULL,
+  `name` varchar(120) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `phone_number` varchar(20) NOT NULL,
+  `pass` varchar(200) NOT NULL,
+  `confarm_pass` varchar(200) NOT NULL,
+  `date` date NOT NULL,
+  `image` varchar(250) NOT NULL,
+  `is_veryfiyed` tinyint(1) NOT NULL DEFAULT 0,
+  `token` varchar(200) DEFAULT NULL,
+  `token_exp` date DEFAULT NULL,
+  `date_time` datetime NOT NULL DEFAULT current_timestamp(),
+  `status` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rooms`
 --
 
@@ -169,8 +191,20 @@ CREATE TABLE `rooms` (
   `audlt` int(11) NOT NULL,
   `children` int(11) NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1,
-  `rooms_desc` varchar(150) NOT NULL
+  `rooms_desc` varchar(150) NOT NULL,
+  `remove` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `rooms_names`, `area`, `price`, `quentity`, `audlt`, `children`, `status`, `rooms_desc`, `remove`) VALUES
+(36, 'dsf', 1, 1, 1, 1, 1, 1, '', 1),
+(37, 'rer', 1, 1, 1, 1, 1, 1, '', 1),
+(38, 'room 1', 1, 120, 1, 1, 1, 1, '', 0),
+(39, 'room 2', 520, 180, 1, 2, 3, 1, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus eaque ipsa corporis repudiandae repellendus debitis eius aliquam id eos maxime lab', 0),
+(40, 'room 3', 1, 196, 1, 1, 1, 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -185,6 +219,19 @@ CREATE TABLE `rooms_images` (
   `rooms_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `rooms_images`
+--
+
+INSERT INTO `rooms_images` (`sr_no`, `img_name`, `thumb`, `rooms_id`) VALUES
+(31, '1715999845_rv vicale (2).jpg', 1, 38),
+(32, '1715999851_rv vicale (7).jpg', 0, 38),
+(33, '1715999856_rv vicale (3).jpg', 0, 38),
+(34, '1716022001_rv vicale (16).jpg', 1, 39),
+(35, '1716022008_rv vicale (18).jpg', 0, 39),
+(36, '1716022013_rv vicale (17).jpg', 0, 39),
+(37, '1716093111_rv vicale (9).jpg', 1, 40);
+
 -- --------------------------------------------------------
 
 --
@@ -197,6 +244,20 @@ CREATE TABLE `room_facility` (
   `facility_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `room_facility`
+--
+
+INSERT INTO `room_facility` (`sr_no`, `rooms_id`, `facility_id`) VALUES
+(99, 38, 19),
+(100, 38, 22),
+(103, 40, 19),
+(104, 40, 22),
+(105, 40, 27),
+(111, 39, 19),
+(112, 39, 22),
+(113, 39, 27);
+
 -- --------------------------------------------------------
 
 --
@@ -208,6 +269,21 @@ CREATE TABLE `room_featurs` (
   `room_id` int(11) NOT NULL,
   `featurs_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `room_featurs`
+--
+
+INSERT INTO `room_featurs` (`sr_no`, `room_id`, `featurs_id`) VALUES
+(42, 36, 12),
+(54, 38, 12),
+(55, 38, 17),
+(59, 40, 12),
+(60, 40, 16),
+(61, 40, 17),
+(68, 39, 12),
+(69, 39, 16),
+(70, 39, 17);
 
 -- --------------------------------------------------------
 
@@ -306,6 +382,12 @@ ALTER TABLE `members`
   ADD PRIMARY KEY (`sr_no`);
 
 --
+-- Indexes for table `registre`
+--
+ALTER TABLE `registre`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- Indexes for table `rooms`
 --
 ALTER TABLE `rooms`
@@ -387,28 +469,34 @@ ALTER TABLE `members`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
+-- AUTO_INCREMENT for table `registre`
+--
+ALTER TABLE `registre`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `rooms_images`
 --
 ALTER TABLE `rooms_images`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `room_facility`
 --
 ALTER TABLE `room_facility`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT for table `room_featurs`
 --
 ALTER TABLE `room_featurs`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `site_title`
