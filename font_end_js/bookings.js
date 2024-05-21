@@ -11,4 +11,38 @@ var swiper = new Swiper(".rooms_slider", {
     },
     mousewheel: true,
     keyboard: true,
-  });
+  }); 
+
+  // add form functionnality 
+  const book_now = document.getElementById('book_now');
+
+  const pay_info  = document.getElementById('pay_info');
+  const pre_loader = document.getElementById('pre_loader');
+  const file_path = './admin/ajax/booking_form.php';
+  // check rooms is avabilable or not  date USING   AJAX
+  function check_rooms_avabilable(date){
+    pre_loader.style.display = 'block';
+    let checkInVal = book_now.elements['checkin'].value;
+    let checkout = book_now.elements['checkout'].value;
+   let xhr = new XMLHttpRequest();
+    let formData = new FormData();
+    formData.append('checkin',checkInVal );
+    formData.append('checkout', checkout);
+    
+    formData.append('check_date','');
+
+    xhr.open('POST', file_path, true);
+
+
+
+    if(checkInVal !=='' && checkout !=='' ){
+
+      xhr.send(formData);
+    }
+
+
+
+
+  }
+
+  
