@@ -39,7 +39,7 @@
   $res = select("SELECT * FROM `rooms` WHERE `id`=? AND  `status`=? AND `remove`=?", [$rooms_id['room_id'], 1, 0], 'iii');
 
   if (mysqli_num_rows($res) == 0) {
- 
+
     redirect('rooms.php');
   }
   $room = mysqli_fetch_assoc($res);
@@ -104,60 +104,62 @@
         <div class="card mb-3 border-0 shadow">
           <div class="card-body">
 
-            <h4 class="mb-4">$<?php echo $room['price'] ?> per night</h4>
+            <!-- add booking form 
+           -->
+            <form action="" id="book_now">
 
-            <!-- Features -->
-            <div class="features mb-4">
-              <h6 class="mb-1">Features</h6>
-              <?php
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="name_book" class="form-label">Name</label>
+                    <input required value="Robin" type="text" name="name_book" class="form-control shadow-none"
+                      id="name_book" aria-describedby="emailHelp">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label for="phone_book" value="016" class="form-label"> Phone</label>
+                    <input required type="text" name="phone_book" class="form-control shadow-none" id="phone_book"
+                      aria-describedby="emailHelp">
+                  </div>
+                </div>
+                <div class="col-lg-12">
+                  <div class="mb-3">
+                    <label for="address" class="form-label"> Address</label>
+                    <input required value="Kancherkol" type="text" name="address" class="form-control shadow-none"
+                      id="address" aria-describedby="emailHelp">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="mb-3">
+                    <label f class="form-label">Chekcout date
+                    </label>
+                    <input type="date" name="checkin" class="form-control shadow-none"  />
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class=" mb-3">
+                    <label for="checkoutDate" class="form-label">Chekcout date
+                    </label>
+                    <input type="date" name="checkout" class="form-control shadow-none"  />
+                  </div>
+                </div>
 
-              // Fetch features for the current room
-              $room_featuress = mysqli_query($conn, "SELECT feature.name FROM `feature_facility` feature INNER JOIN `room_featurs` rFeaturs ON feature.id = rFeaturs.featurs_id WHERE rFeaturs.room_id = $room_id");
-              $featurss = "";
-              while ($room_feat = mysqli_fetch_assoc($room_featuress)) {
-                $featurss .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>{$room_feat['name']}</span> ";
-              }
+                <div class="book-now col-lg-12">
+                  <div class="spinner-border text-primary d-none" role="status" id="pre_loader">
+                    <span class="visually-hidden">Loading...</span>
+                  </div>
+                  <h6 class="mb-3 text-danger" id="pay_info" > Provide Checkin and Checkout Date!</h6>
 
-              echo $featurss;
+                  <button disabled type="submit" name="book_subit" href="book.php?room_id=<?php echo $room['id']; ?>" class="btn btn-primary w-100">Pay Now</button>
+                </div>
+              </div>
 
-
-              ?>
-            </div>
-            <!-- Facilities -->
-            <div class="facilities mb-4">
-              <h6 class="mb-1">Facilities</h6>
-              <?php
-
-              $rooms_facilities = mysqli_query($conn, "SELECT f.name FROM `facilities` f INNER JOIN `room_facility` rfec
-              ON f.id = rfec.facility_id WHERE rfec.rooms_id = $room_id");
-
-              // Loop through the facilities and collect them
-              $facilities = "";
-              while ($room_f = mysqli_fetch_assoc($rooms_facilities)) {
-                $facilities .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>{$room_f['name']}</span> ";
-              }
-              echo $facilities
-                ?>
+            </form>
 
 
-            </div>
-            <div class="mb-4 guest">
-              <h6 class="mb-1">Guest</h6>
-              <span class='badge rounded-pill bg-light text-dark text-wrap'><?php echo $room['audlt']; ?> Adults</span>
-
-              <span class='badge rounded-pill bg-light text-dark text-wrap'><?php echo $room['children']; ?> Children</span>
-
-
-            </div>
-
-            <div class="area mb-4">
-              <h6 class="mb-1">Area</h6>
-              <span class='badge rounded-pill bg-light text-dark text-wrap'><?php echo $room['area']; ?> sqft</span>
-            </div>
             <!-- add book now button full width  -->
-            <div class="book-now ">
-              <a  href="book.php?room_id=<?php echo $room['id']; ?>" class="btn btn-primary w-100">Book Now</a>
-            </div>
+
           </div>
 
 
@@ -166,11 +168,11 @@
         </div>
       </div>
       <div class="col-lg-12">
-         <!-- add discription  -->
-         <div class="discription mt-4">
+        <!-- add discription  -->
+        <div class="discription mt-4">
           <h6 class="mb-1">Description</h6>
           <p><?php echo $room['rooms_desc']; ?></p>
-         </div>
+        </div>
       </div>
     </div>
   </div>
@@ -279,21 +281,9 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
   <!-- Initialize Swiper -->
-  <script>
-    var swiper = new Swiper(".rooms_slider", {
-      cssMode: true,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-      },
-      mousewheel: true,
-      keyboard: true,
-    });
-  </script>
+
+
+  <script src="./font_end_js/bookings.js"></script>
 </body>
 
 </html>
