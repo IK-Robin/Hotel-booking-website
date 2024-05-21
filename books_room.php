@@ -1,3 +1,5 @@
+
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,32 +26,51 @@
     </div>
   </div>
 
-
   <?php
+// Start the session to use session variables
 
-  if (!isset($_GET['room_id'])) {
 
+// Check if the 'room_id' is present in the GET request
+if (!isset($_GET['room_id'])) {
     redirect('rooms.php');
+}
 
-  }
+// Filter and retrieve the room ID from the GET request
+$rooms_id = filtaration($_GET);
 
+// Query the database to fetch the room details
+$res = select("SELECT * FROM `rooms` WHERE `id`=? AND `status`=? AND `remove`=?", [$rooms_id['room_id'], 1, 0], 'iii');
 
-  $rooms_id = filtaration($_GET);
-
-  $res = select("SELECT * FROM `rooms` WHERE `id`=? AND  `status`=? AND `remove`=?", [$rooms_id['room_id'], 1, 0], 'iii');
-
-  if (mysqli_num_rows($res) == 0) {
-
+// If no room is found, redirect to the rooms page
+if (mysqli_num_rows($res) == 0) {
     redirect('rooms.php');
+}
+
+// Fetch the room details from the result set
+$room = mysqli_fetch_assoc($res);
+$room_id = $rooms_id['room_id'];
+
+// Store room data in the session
+$_SESSION['room'] = [
+    "id" => $room_id,
+    "name" => $room['rooms_names'],
+    "price" => $room['price'],
+    "payment" => null,
+    "availible" => false,
+];
+
+// Check if the session variable 'room' is set and display its data
+  if (isset($_SESSION['room'])) {
+      echo "Room ID: " . $_SESSION['room']['id'] . "<br>";
+      echo "Room Name: " . $_SESSION['room']['name'] . "<br>";
+      echo "Room Price: " . $_SESSION['room']['price'] . "<br>";
+      echo "Payment Status: " . (is_null($_SESSION['room']['payment']) ? "Not Paid" : $_SESSION['room']['payment']) . "<br>";
+      echo "Availability: " . ($_SESSION['room']['availible'] ? "Available" : "Not Available") . "<br>";
+  } else {
+      echo "Room data is not set in the session.";
   }
-  $room = mysqli_fetch_assoc($res);
-  $room_id = $rooms_id['room_id'];
+?>
 
-  // Fetch rooms that are active and not removed
-  
-
-
-  ?>
 
 
   <div class="container">
