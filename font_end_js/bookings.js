@@ -33,7 +33,12 @@ var swiper = new Swiper(".rooms_slider", {
 
     xhr.open('POST', file_path, true);
 
-
+    xhr.onload =function(){
+      if(this.status == 200){
+        // let data = JSON.parse(this.responseText);
+        console.log(this.responseText);
+      }
+    }
 
     if(checkInVal !=='' && checkout !=='' ){
 
