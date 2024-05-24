@@ -190,12 +190,13 @@ while ($row = mysqli_fetch_assoc($res)) {
             </div>
             <div class="col-md-2 text-center">
                 <h6 class="mb-4">$$row[price] per night</h6>
-                <a href="#" class="btn btn-sm w-100 text-white custom_bg mb-2">Book Now</a>
+                <a href="books_room.php?room_id= $room_id"  class="btn btn-sm w-100 text-white custom_bg mb-2">Book Now</a>
+
                 <a href="rooms_description.php?id=$room_id" class="btn btn-sm w-100 btn-outline-dark shadow-none">More Details</a>
             </div>
         </div>
     </div>
-DATA;
+DATA; 
 }
 
 ?>
