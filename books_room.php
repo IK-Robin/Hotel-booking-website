@@ -1,5 +1,5 @@
 
-<?php session_start();?>
+<?php session_start();?> 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,17 +58,8 @@ $_SESSION['room'] = [
     "payment" => null,
     "availible" => false,
 ];
+ 
 
-// Check if the session variable 'room' is set and display its data
-  if (isset($_SESSION['room'])) {
-      echo "Room ID: " . $_SESSION['room']['id'] . "<br>";
-      echo "Room Name: " . $_SESSION['room']['name'] . "<br>";
-      echo "Room Price: " . $_SESSION['room']['price'] . "<br>";
-      echo "Payment Status: " . (is_null($_SESSION['room']['payment']) ? "Not Paid" : $_SESSION['room']['payment']) . "<br>";
-      echo "Availability: " . ($_SESSION['room']['availible'] ? "Available" : "Not Available") . "<br>";
-  } else {
-      echo "Room data is not set in the session.";
-  }
 ?>
 
 
@@ -128,7 +119,7 @@ $_SESSION['room'] = [
             <!-- add booking form 
            -->
             <form action="" id="book_now">
-
+            <input type="hidden" name="room_id" value="<?php echo $room_id; ?>">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="mb-3">
@@ -140,7 +131,7 @@ $_SESSION['room'] = [
                 <div class="col-lg-6">
                   <div class="mb-3">
                     <label for="phone_book" value="016" class="form-label"> Phone</label>
-                    <input required type="text" name="phone_book" class="form-control shadow-none" id="phone_book"
+                    <input value="8888" required type="text" name="phone_book" class="form-control shadow-none" id="phone_book"
                       aria-describedby="emailHelp">
                   </div>
                 </div>
@@ -153,26 +144,26 @@ $_SESSION['room'] = [
                 </div>
                 <div class="col-lg-6">
                   <div class="mb-3">
-                    <label f class="form-label">Chekcout date
+                    <label f class="form-label">Chek in date
                     </label>
                     <input type="date" onchange="check_rooms_avabilable()" name="checkin" class="form-control shadow-none"  />
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class=" mb-3">
-                    <label for="checkoutDate" class="form-label">Chekcout date
+                    <label for="checkoutDate" class="form-label">Check out date
                     </label>
                     <input onchange="check_rooms_avabilable()" type="date" name="checkout" class="form-control shadow-none"  />
                   </div>
                 </div>
 
                 <div class="book-now col-lg-12">
-                  <div class="spinner-border text-primary d-none" role="status" id="pre_loader">
+                  <div class="spinner-border text-primary d-none mb-3" role="status" id="pre_loader">
                     <span class="visually-hidden">Loading...</span>
                   </div>
                   <h6 class="mb-3 text-danger" id="pay_info" > Provide Checkin and Checkout Date!</h6>
 
-                  <button disabled type="submit" name="book_subit" href="book.php?room_id=<?php echo $room['id']; ?>" class="btn btn-primary w-100">Pay Now</button>
+                  <button disabled  type="submit" name="book_subit" id="book_subit"  class="btn btn-primary w-100">Pay Now</button>
                 </div>
               </div>
 
