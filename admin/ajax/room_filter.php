@@ -39,13 +39,13 @@ if (isset($_GET['featch_rooms'])) {
 
 
 
-
+ 
     // check facility_list 
 
 
     $facility_list = json_decode($_GET['facility_list'],true);
     $feature_list = json_decode($_GET['feature_list'],true);
-
+ 
 
 
 
