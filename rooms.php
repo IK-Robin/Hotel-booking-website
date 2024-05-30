@@ -32,8 +32,8 @@
       <!-- add side bar  -->
       <div class="col-lg-3  " id="filter_section">
         <nav class="navbar navbar-expand-lg navbar-light bg-white rounded shadow">
-          <div class="container-fluid  d-flex flex-lg-column align-items-stretch">
-            <h6 class="mt-2 ps-3">Filters</h6>
+          <div class="container d-flex flex-lg-column align-items-stretch">
+            <h6 class="mt-2 ">Filters</h6>
             <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse"
               data-bs-target="#rooms_filter" aria-controls="rooms_filter" aria-expanded="false"
               aria-label="Toggle navigation">
@@ -41,8 +41,8 @@
             </button>
             <div class="collapse navbar-collapse flex-lg-column mt-2 align-items-stretch " id="rooms_filter">
               <div class=" bg-light rounded mb-3">
-                <h6 class="mb-3 d-flex justify-content-between">CHECK AVAILABILITY 
-                  <span id="reset_avail" class=""> Reset</span>
+                <h6 class="mb-3 d-flex justify-content-between">Dates
+                  <span id="reset_avail" onclick="clear_date()" class="text-secondary btn btn-sm  d-none"> Reset</span>
                 </h6>
                 <div class="">
                   <label for="checkin_date" class="form-label">Check In Date
@@ -56,44 +56,79 @@
                 </div>
               </div>
               <div class=" bg-light rounded mb-3">
-                <h6 class="mb-3">FACILITIES</h6>
-                <div class="mb-2">
+                <h6 class="mb-3 d-flex justify-content-between">
+                  FACILITIES 
+                  <span id="fil_facility" onclick="clerar_facility()" class="text-secondary btn btn-sm  d-none"> Reset</span>
+                </h6>
 
-                  <input type="checkbox" class="form-check-input shadow-none" id="f1" />
-                  <label for="f1" class="form-label">
-                    Facility one
-                  </label>
+            <!-- add facility from db  -->
+            <?php
+            
+            // get all facility 
+            $facility_query = selectAll('facilities');
+            $facility_output  ="";
+            while($row = mysqli_fetch_assoc($facility_query)){
+              $facility_output .= " <div class='mb-2'>
 
-                </div>
-                <div class="mb-2">
-                  <input type="checkbox" class="form-check-input shadow-none" id="f2" />
-                  <label for="f2" class="form-label">
-                    Facility two
-                  </label>
-                </div>
-                <div class="mb-2">
-                  <input type="checkbox" class="form-check-input shadow-none" id="f3" />
-                  <label for="f3" class="form-label">
-                    Facility Three
-                  </label>
-                </div>
-                <div class="mb-2">
-                  <input type="checkbox" class="form-check-input shadow-none" id="f4" />
-                  <label for="f4" class="form-label">
-                    Facility Four
-                  </label>
-                </div>
+              <input name='facilitys' value='$row[id]' onclick='filter_facility()' type='checkbox' class='form-check-input shadow-none' id='$row[id]' />
+              <label for='$row[id]'  class='form-label'>
+              $row[name]
+              </label>
+
+            </div>";
+              
+            }
+          
+            echo $facility_output;
+            
+            ?>
+
+               
+             
 
 
               </div>
+
+              <!-- show all feature  -->
               <div class=" bg-light rounded mb-3">
-                <h6 class="mb-3">Guest</h6>
+                <h6 class="mb-3 d-flex justify-content-between">
+                  Feature 
+                  <span id="fil_feature" onclick="clear_featuer()" class="text-secondary btn btn-sm  d-none"> Reset</span>
+                </h6>
+              
+                <?php
+            
+            // get all facility 
+            $featuer_query = selectAll('feature_facility');
+            $feature_output  ="";
+            while($row = mysqli_fetch_assoc($featuer_query)){
+              $feature_output .= " <div class='mb-2'>
+
+              <input type='checkbox' name='feature' value='$row[id]' onclick='check_features()' class='form-check-input shadow-none' id='$row[id]' />
+              <label for='$row[id]' class='form-label'>
+              $row[name]
+              </label>
+
+            </div>";
+              
+            }
+          
+            echo $feature_output;
+            
+            ?>
+
+              </div>
+              <div class=" bg-light rounded mb-3">
+              <h6 class="mb-3 d-flex justify-content-between">
+                  Guest 
+                  <span id="guest_reset" onclick="clear_guest()" class="text-secondary btn btn-sm  d-none"> Reset</span>
+                </h6>
                 <div class="mb-2 d-flex ">
                   <div class="guest me-3">
                     <label for="audalt" class="form-label">
                       Audalt
                     </label>
-                    <input type="number" class="form-control shadow-none" id="audalt" />
+                    <input min="1"  type="number" oninput="guest_filter()" class="form-control shadow-none" id="audalt" />
 
                   </div>
 
@@ -104,7 +139,7 @@
                     <label for="children" class="form-label">
                       Children
                     </label>
-                    <input type="number" class="form-control shadow-none" id="children" />
+                    <input min="1" type="number"  oninput="guest_filter()"class="form-control shadow-none" id="children" />
 
                   </div>
 
