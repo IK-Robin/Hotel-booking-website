@@ -44,8 +44,11 @@ if (isset($_GET['featch_rooms'])) {
 
 
     $facility_list = json_decode($_GET['facility_list'],true);
+    $feature_list = json_decode($_GET['feature_list'],true);
 
-print_r($facility_list);
+
+
+
 
     $output = "";
     $count = 0;
@@ -117,14 +120,24 @@ print_r($facility_list);
 
 
 
+        // add  features filter 
+        $feature_count = 0;
         // Fetch features for the current room
-        $room_featuress = mysqli_query($conn, "SELECT feature.name FROM `feature_facility` feature INNER JOIN `room_featurs` rFeaturs ON feature.id = rFeaturs.featurs_id WHERE rFeaturs.room_id = $room_id");
+        $room_featuress = mysqli_query($conn, "SELECT feature.name, feature.id FROM `feature_facility` feature INNER JOIN `room_featurs` rFeaturs ON feature.id = rFeaturs.featurs_id WHERE rFeaturs.room_id = $room_id");
 
         // Loop through the features and collect them
         $featurss = "";
         while ($room_feat = mysqli_fetch_assoc($room_featuress)) {
+        //    add the code for getting the facility filter 
+            if(in_array($room_feat['id'],$feature_list['feature_list'])){
+                $feature_count++;
+            }
             $featurss .= "<span class='badge rounded-pill bg-light text-dark text-wrap'>{$room_feat['name']}</span> ";
         }
+        if(count($feature_list['feature_list']) !=$feature_count){
+            continue;
+        }
+
 
         // Get room's image
         $room_image = mysqli_query($conn, "SELECT * FROM `rooms_images` WHERE `rooms_id` = $room_id AND `thumb` = 1");
