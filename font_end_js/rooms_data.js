@@ -157,4 +157,5 @@ function clear_featuer(){
     fil_feature.classList.remove('d-block');
     fil_feature.classList.add('d-none');
 }
-featch_rooms();
+
+window.onload(featch_rooms());
