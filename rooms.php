@@ -21,7 +21,30 @@
     <div class="container">
       <?php require ("./components/header.php") ?>
     </div>
-  </div>
+  </div>\
+
+
+
+
+
+  <?php
+
+
+$default_check_in = "";
+$default_check_out = "";
+$default_children = "";
+$default_adults = "";
+if(isset($_GET['check_availability'])){
+    $home_page_filter = filtaration($_GET);
+
+    $default_check_in = $home_page_filter['checkIn'];
+    $default_check_out= $home_page_filter['check_out'];
+    $default_children = $home_page_filter['children'];
+    $default_adults = $home_page_filter['audlt'];
+}
+
+
+?>
   <!-- our rooms  -->
   <div class="my-5 px-4">
     <h2 class="mt-4 mb-1 pt-4 text-center font-bold merinda">OUR ROOMS</h2>
@@ -42,17 +65,17 @@
             <div class="collapse navbar-collapse flex-lg-column mt-2 align-items-stretch " id="rooms_filter">
               <div class=" bg-light rounded mb-3">
                 <h6 class="mb-3 d-flex justify-content-between">Dates
-                  <span id="reset_avail" onclick="clear_date()" class="text-secondary btn btn-sm  d-none"> Reset</span>
+                  <span id="reset_avail" onclick="clear_date()"  class="text-secondary btn btn-sm  d-none"> Reset</span>
                 </h6>
                 <div class="">
                   <label for="checkin_date" class="form-label">Check In Date
                   </label>
-                  <input type="date" onchange="check_room_aval()" name="checkin_date" class="form-control shadow-none" id="checkin_date" />
+                  <input type="date" onchange="check_room_aval()" value="<?php echo $default_check_in; ?>" name="checkin_date" class="form-control shadow-none" id="checkin_date" />
                 </div>
                 <div class="">
                   <label for="checkout_date" class="form-label">Check out Date
                   </label>
-                  <input type="date" class="form-control shadow-none" id="checkout_date" name="checkout_date" onchange="check_room_aval()" />
+                  <input type="date" class="form-control shadow-none" id="checkout_date" name="checkout_date" value="<?php echo $default_check_out; ?>"  onchange="check_room_aval()" />
                 </div>
               </div>
               <div class=" bg-light rounded mb-3">
@@ -128,7 +151,7 @@
                     <label for="audalt" class="form-label">
                       Audalt
                     </label>
-                    <input min="1"  type="number" oninput="guest_filter()" class="form-control shadow-none" id="audalt" />
+                    <input min="1" value="<?php echo $default_adults; ?>"  type="number" oninput="guest_filter()" class="form-control shadow-none" id="audalt" />
 
                   </div>
 
@@ -139,7 +162,7 @@
                     <label for="children" class="form-label">
                       Children
                     </label>
-                    <input min="1" type="number"  oninput="guest_filter()"class="form-control shadow-none" id="children" />
+                    <input value="<?php echo $default_children; ?>"  min="1" type="number"  oninput="guest_filter()"class="form-control shadow-none" id="children" />
 
                   </div>
 
