@@ -38,8 +38,22 @@ function featch_rooms(){
     }
    facilities_list = JSON.stringify(facilities_list);
 
+
+    // get all features  
+    const feature_lists = document.querySelectorAll('[name="feature"]:checked');
+   
+    let feature_list = {"feature_list":[]};
+    if( feature_lists.length > 0 ){
+        feature_lists.forEach((item) => {
+            feature_list.feature_list.push(item.value);
+        });
+    }
+   feature_list = JSON.stringify(feature_list);
+
+
     let xhr = new XMLHttpRequest();
-    xhr.open('GET', file_path+`?featch_rooms&check_aval=${check_aval}&guest_filter=${guest_val} &facility_list=${facilities_list}`, true);
+    xhr.open('GET', file_path+`?featch_rooms&check_aval=${check_aval}&guest_filter=${guest_val} &facility_list=${facilities_list} &feature_list=${feature_list}`, true);
+
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
 
@@ -105,6 +119,8 @@ function filter_facility (){
     featch_rooms();
 }
 
+
+
 function clerar_facility(){
     // get all facility using there name 
 
@@ -118,5 +134,27 @@ function clerar_facility(){
    
     fil_facility.classList.remove('d-block');
     fil_facility.classList.add('d-none');
+}
+
+// check facility filter section 
+function check_features () {
+    fil_feature.classList.add('d-block');
+    fil_feature.classList.remove('d-none');
+    featch_rooms();
+}
+
+function clear_featuer(){
+    // get all facility using there name 
+
+
+    const feature = document.querySelectorAll('[name="feature"]:checked');
+
+    for (let i = 0; i < feature.length; i++) {
+        feature[i].checked = false;
+    }
+    // toggle the cliass list 'd-block'
+   
+    fil_feature.classList.remove('d-block');
+    fil_feature.classList.add('d-none');
 }
 featch_rooms();
