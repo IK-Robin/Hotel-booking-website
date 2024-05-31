@@ -2,6 +2,8 @@
 
 require ("../db/phplinks.php");
 
+
+
 if (isset($_GET['featch_rooms'])) {
     $check_aval = json_decode($_GET['check_aval'], true);
     // check date filter 
