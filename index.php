@@ -66,12 +66,12 @@
             <div class="col-lg-3 mb-3">
               <label for="" class="form-label">Chekcout date
               </label>
-              <input type="date" class="form-control shadow-none" name="checkIn" id="" />
+              <input required type="date" class="form-control shadow-none" name="checkIn" id="" />
             </div>
             <div class="col-lg-3 mb-3">
               <label for="" class="form-label">check in date
               </label>
-              <input type="date" class="form-control shadow-none" name="check_out" id="" />
+              <input required type="date" class="form-control shadow-none" name="check_out" id="" />
             </div>
             <div class="col-lg-3 mb-3">
               <label for="" class="form-label">Audalts </label>
