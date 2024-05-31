@@ -100,6 +100,7 @@ xhr.onload = function(){
   rooms_form_edit.elements["quentity"].value =roomData.quentity;
   rooms_form_edit.elements["audlt"].value =roomData.audlt;
   rooms_form_edit.elements["children"].value =roomData.children;
+// hide rooms_form_edit using bootstrap  modal 
 
 
    let featurs = [];
