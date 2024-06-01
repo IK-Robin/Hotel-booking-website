@@ -24,6 +24,7 @@ var swiper = new Swiper(".rooms_slider", {
   // check rooms is avabilable or not  date USING   AJAX
   function check_rooms_avabilable(date){
 
+    
     let checkInVal = book_now.elements['checkin'].value;
     let checkout = book_now.elements['checkout'].value;
    let xhr = new XMLHttpRequest();
@@ -117,3 +118,4 @@ var swiper = new Swiper(".rooms_slider", {
   
     
   }
+  window.onload = check_rooms_avabilable();

@@ -173,7 +173,7 @@ if (isset($_GET['featch_rooms'])) {
             </div>
             <div class='col-md-2 text-center'>
                 <h6 class='mb-4'>$$row[price] per night</h6>
-                <a href='books_room.php?room_id= $room_id'  class='btn btn-sm w-100 text-white custom_bg mb-2'>Book Now</a>
+                <a href='books_room.php?room_id= $room_id&checkout=$check_aval[checkout_date]&checkin=$check_aval[checkin_date]' class='btn btn-sm w-100 text-white custom_bg mb-2'>Book Now</a>
 
                 <a href='rooms_description.php?id=$room_id' class='btn btn-sm w-100 btn-outline-dark shadow-none'>More Details</a>
             </div>

@@ -146,14 +146,14 @@ $_SESSION['room'] = [
                   <div class="mb-3">
                     <label f class="form-label">Chek in date
                     </label>
-                    <input type="date" onchange="check_rooms_avabilable()" name="checkin" class="form-control shadow-none"  />
+                    <input type="date" value="<?php echo $rooms_id['checkin'] ?>" onchange="check_rooms_avabilable()" name="checkin" class="form-control shadow-none"  />
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class=" mb-3">
                     <label for="checkoutDate" class="form-label">Check out date
                     </label>
-                    <input onchange="check_rooms_avabilable()" type="date" name="checkout" class="form-control shadow-none"  />
+                    <input value="<?php echo $rooms_id['checkout'] ?>"  onchange="check_rooms_avabilable()" type="date" name="checkout" class="form-control shadow-none"  />
                   </div>
                 </div>
 

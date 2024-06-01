@@ -42,12 +42,11 @@ adminLogin();
              <h5>       New Booking </h5>
              <h6><?php echo $current_booking['new_booking']; ?></h6>
 
-
                 </div>
             </a>
         </div>
         <div class="col-lg-3 mb-3">
-            <a href="tootal_booking.php" class="text-decoration-none text-prymary">
+            <a href="user_query.php" class="text-decoration-none text-prymary">
                 <div class="card p-3 border-0 shadow text-center">
              <h5> User Queries </h5>
              <h6><?php echo $unread_user_query['count'] ;?></h6>
