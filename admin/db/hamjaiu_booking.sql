@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 21, 2024 at 06:23 AM
+-- Generation Time: Jun 01, 2024 at 10:25 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -39,6 +39,65 @@ CREATE TABLE `admin_login` (
 
 INSERT INTO `admin_login` (`sr_no`, `admin_name`, `admin_pass`) VALUES
 (1, 'robin', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_discription`
+--
+
+CREATE TABLE `book_discription` (
+  `sr_no` int(11) NOT NULL,
+  `booking_id` int(11) NOT NULL,
+  `room_name` varchar(200) NOT NULL,
+  `price` int(11) NOT NULL,
+  `total_price` int(11) NOT NULL,
+  `adderss` varchar(200) NOT NULL,
+  `phone_num` varchar(15) NOT NULL,
+  `user_name` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_discription`
+--
+
+INSERT INTO `book_discription` (`sr_no`, `booking_id`, `room_name`, `price`, `total_price`, `adderss`, `phone_num`, `user_name`) VALUES
+(62, 63, 'room 2', 149, 1788, 'Kancherkol', '8888', 'Robin'),
+(63, 64, 'room 2', 149, 1341, 'Kancherkol', '8888', 'Robin');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book_now`
+--
+
+CREATE TABLE `book_now` (
+  `booking_id` int(11) NOT NULL,
+  `room_id` int(11) NOT NULL,
+  `check_in` date NOT NULL,
+  `check_out` date NOT NULL,
+  `arrival` int(11) NOT NULL DEFAULT 0,
+  `refund` int(11) DEFAULT NULL,
+  `booking_status` varchar(11) NOT NULL DEFAULT 'booked',
+  `order_id` varchar(200) NOT NULL,
+  `trans_id` varchar(200) NOT NULL,
+  `trans_amt` int(11) NOT NULL,
+  `trans_status` int(11) DEFAULT NULL,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `book_now`
+--
+
+INSERT INTO `book_now` (`booking_id`, `room_id`, `check_in`, `check_out`, `arrival`, `refund`, `booking_status`, `order_id`, `trans_id`, `trans_amt`, `trans_status`, `datetime`) VALUES
+(58, 43, '2024-05-26', '2024-05-30', 0, NULL, 'booked', '298218', '', 4, NULL, '2024-05-26 11:19:20'),
+(59, 41, '2024-05-27', '2024-05-28', 0, NULL, 'booked', '8369044', '', 1, NULL, '2024-05-26 11:22:07'),
+(60, 45, '2024-05-30', '2024-06-01', 0, NULL, 'booked', '2088530', '', 2, NULL, '2024-05-30 10:40:27'),
+(61, 43, '2024-05-31', '2024-06-01', 0, NULL, 'booked', '5701057', '', 1, NULL, '2024-05-31 08:33:39'),
+(62, 44, '2024-05-31', '2024-06-02', 0, NULL, 'booked', '7700053', '', 2, NULL, '2024-05-31 08:36:01'),
+(63, 42, '2024-06-01', '2024-06-13', 0, NULL, 'booked', '3319993', '', 1788, NULL, '2024-06-01 11:04:12'),
+(64, 42, '2024-06-13', '2024-06-22', 0, NULL, 'booked', '5106456', '', 1341, NULL, '2024-06-01 11:04:38');
 
 -- --------------------------------------------------------
 
@@ -128,7 +187,8 @@ CREATE TABLE `feature_facility` (
 INSERT INTO `feature_facility` (`id`, `name`) VALUES
 (12, 'sdfasd'),
 (16, 'dsfsd'),
-(17, 'sdfsdaf');
+(17, 'sdfsdaf'),
+(18, 'new added');
 
 -- --------------------------------------------------------
 
@@ -200,11 +260,11 @@ CREATE TABLE `rooms` (
 --
 
 INSERT INTO `rooms` (`id`, `rooms_names`, `area`, `price`, `quentity`, `audlt`, `children`, `status`, `rooms_desc`, `remove`) VALUES
-(36, 'dsf', 1, 1, 1, 1, 1, 1, '', 1),
-(37, 'rer', 1, 1, 1, 1, 1, 1, '', 1),
-(38, 'room 1', 1, 120, 1, 1, 1, 1, '', 0),
-(39, 'room 2', 520, 180, 1, 2, 3, 1, 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus eaque ipsa corporis repudiandae repellendus debitis eius aliquam id eos maxime lab', 0),
-(40, 'room 3', 1, 196, 1, 1, 1, 1, '', 0);
+(41, 'room 1', 1, 1, 1, 1, 2, 1, '', 0),
+(42, 'room 2', 1, 149, 1, 1, 1, 1, '', 0),
+(43, 'room 3', 1, 1, 1, 1, 1, 1, '', 0),
+(44, 'room 4', 1, 1, 1, 1, 1, 1, '', 0),
+(45, 'room 5', 1, 1, 1, 1, 1, 1, '', 0);
 
 -- --------------------------------------------------------
 
@@ -224,13 +284,13 @@ CREATE TABLE `rooms_images` (
 --
 
 INSERT INTO `rooms_images` (`sr_no`, `img_name`, `thumb`, `rooms_id`) VALUES
-(31, '1715999845_rv vicale (2).jpg', 1, 38),
-(32, '1715999851_rv vicale (7).jpg', 0, 38),
-(33, '1715999856_rv vicale (3).jpg', 0, 38),
-(34, '1716022001_rv vicale (16).jpg', 1, 39),
-(35, '1716022008_rv vicale (18).jpg', 0, 39),
-(36, '1716022013_rv vicale (17).jpg', 0, 39),
-(37, '1716093111_rv vicale (9).jpg', 1, 40);
+(38, '1716437800_rv vicale (1).jpg', 0, 41),
+(39, '1716437803_rv vicale (3).jpg', 1, 41),
+(40, '1716437807_rv vicale (9).jpg', 0, 41),
+(41, '1716438324_rv vicale (7).jpg', 1, 42),
+(42, '1716438336_rv vicale (8).jpg', 1, 43),
+(43, '1716438345_rv vicale (9).jpg', 1, 44),
+(44, '1716700978_rv vicale (9).jpg', 0, 45);
 
 -- --------------------------------------------------------
 
@@ -249,14 +309,16 @@ CREATE TABLE `room_facility` (
 --
 
 INSERT INTO `room_facility` (`sr_no`, `rooms_id`, `facility_id`) VALUES
-(99, 38, 19),
-(100, 38, 22),
-(103, 40, 19),
-(104, 40, 22),
-(105, 40, 27),
-(111, 39, 19),
-(112, 39, 22),
-(113, 39, 27);
+(166, 41, 19),
+(167, 41, 22),
+(180, 44, 19),
+(181, 44, 22),
+(182, 44, 27),
+(216, 45, 19),
+(217, 45, 22),
+(218, 43, 19),
+(219, 43, 22),
+(220, 43, 27);
 
 -- --------------------------------------------------------
 
@@ -275,15 +337,16 @@ CREATE TABLE `room_featurs` (
 --
 
 INSERT INTO `room_featurs` (`sr_no`, `room_id`, `featurs_id`) VALUES
-(42, 36, 12),
-(54, 38, 12),
-(55, 38, 17),
-(59, 40, 12),
-(60, 40, 16),
-(61, 40, 17),
-(68, 39, 12),
-(69, 39, 16),
-(70, 39, 17);
+(142, 41, 16),
+(143, 41, 17),
+(144, 41, 18),
+(165, 44, 12),
+(166, 44, 16),
+(167, 44, 17),
+(168, 44, 18),
+(196, 45, 12),
+(197, 42, 18),
+(198, 43, 18);
 
 -- --------------------------------------------------------
 
@@ -339,7 +402,8 @@ INSERT INTO `user_query` (`sr_no`, `name`, `email`, `subject`, `message`, `date`
 (40, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 0),
 (41, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 1),
 (42, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 0),
-(43, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 1);
+(43, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 1),
+(45, 'robin', '887@gmail.com', '8773534', 'lkjfsdjf sodjf sadlifj olsadjflkjsdl jflasdjfjsadljfljkasdjfljasdofj', '2024-05-31', 1);
 
 --
 -- Indexes for dumped tables
@@ -350,6 +414,19 @@ INSERT INTO `user_query` (`sr_no`, `name`, `email`, `subject`, `message`, `date`
 --
 ALTER TABLE `admin_login`
   ADD PRIMARY KEY (`sr_no`);
+
+--
+-- Indexes for table `book_discription`
+--
+ALTER TABLE `book_discription`
+  ADD PRIMARY KEY (`sr_no`),
+  ADD KEY `booking_id` (`booking_id`);
+
+--
+-- Indexes for table `book_now`
+--
+ALTER TABLE `book_now`
+  ADD PRIMARY KEY (`booking_id`);
 
 --
 -- Indexes for table `carosal`
@@ -439,6 +516,18 @@ ALTER TABLE `admin_login`
   MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `book_discription`
+--
+ALTER TABLE `book_discription`
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+
+--
+-- AUTO_INCREMENT for table `book_now`
+--
+ALTER TABLE `book_now`
+  MODIFY `booking_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+
+--
 -- AUTO_INCREMENT for table `carosal`
 --
 ALTER TABLE `carosal`
@@ -460,7 +549,7 @@ ALTER TABLE `facilities`
 -- AUTO_INCREMENT for table `feature_facility`
 --
 ALTER TABLE `feature_facility`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `members`
@@ -478,25 +567,25 @@ ALTER TABLE `registre`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `rooms_images`
 --
 ALTER TABLE `rooms_images`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `room_facility`
 --
 ALTER TABLE `room_facility`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=221;
 
 --
 -- AUTO_INCREMENT for table `room_featurs`
 --
 ALTER TABLE `room_featurs`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=199;
 
 --
 -- AUTO_INCREMENT for table `site_title`
@@ -508,11 +597,17 @@ ALTER TABLE `site_title`
 -- AUTO_INCREMENT for table `user_query`
 --
 ALTER TABLE `user_query`
-  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `sr_no` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `book_discription`
+--
+ALTER TABLE `book_discription`
+  ADD CONSTRAINT `booking_id` FOREIGN KEY (`booking_id`) REFERENCES `book_now` (`booking_id`);
 
 --
 -- Constraints for table `rooms_images`

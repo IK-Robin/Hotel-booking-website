@@ -158,4 +158,4 @@ function clear_featuer(){
     fil_feature.classList.add('d-none');
 }
 
-window.onload(featch_rooms());
+window.onload =featch_rooms();

@@ -110,7 +110,9 @@ var swiper = new Swiper(".rooms_slider", {
             // var url = 'confarm_booking.php?room_id=' + book_now.elements['room_id'].value
 
             // Redirect the user to confarm_booking.php with the parameters
-            // window.location.href = url;
+            window.location.href = `confarm_booking.php?id= ${book_now.elements['room_id'].value}`;
+
+
           }
         }
       }

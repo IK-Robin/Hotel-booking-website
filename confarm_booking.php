@@ -156,7 +156,7 @@
             </div>
             <!-- add book now button full width  -->
             <div class="book-now ">
-              <a  href="books_room.php?room_id=<?php echo $room['id']; ?>" class="btn btn-primary w-100">Book Now</a>
+              <a  href="success_booking.php?room_id=<?php echo $room['id']; ?>" class="btn btn-primary w-100">Book Now</a>
             </div>
           </div>
 
