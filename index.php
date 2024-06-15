@@ -194,7 +194,7 @@
                 <a href="#" class="btn btn-sm custom_bg text-white shadow-none"
                   >Book Now</a
                 >
-                <a href="rooms_description.php?id=$room_id" class="btn btn-sm shadow-none btn-outline-dark"
+                <a href="rooms_description.php?id=$room_id &checkout_date=&checkin&checkin_date=" class="btn btn-sm shadow-none btn-outline-dark"
                   >More Details</a
                 >
               </div>

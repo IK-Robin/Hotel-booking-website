@@ -45,6 +45,10 @@
                                 <a href="setting.php"
                                 class="nav-link text-white">Setting</a>
                             </li>
+                             <li> 
+                                <a href="booking-chart.php"
+                                class="nav-link text-white">Booking Chart</a>
+                            </li>
                     </ul>
 
                 </div>
