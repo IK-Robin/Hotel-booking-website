@@ -8,6 +8,31 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('month-selector').value = currentMonth;
 });
 
+
+const colorClasses = [
+  'color1',
+  'color2',
+  'color3',
+  'color4',
+  'color5',
+  'color6',
+  'color7',
+  'color8',
+  'color9',
+  'color10',
+  'occupied'
+];
+
+// Function to pick a random class
+function pickRandomClass() {
+  const randomIndex = Math.floor(Math.random() * colorClasses.length);
+  return colorClasses[randomIndex];
+}
+
+let colors_code = pickRandomClass();
+
+
+
 function fetchBookings() {
     xhr = new XMLHttpRequest();
     xhr.open('POST', file_url, true);
@@ -55,8 +80,15 @@ function generateGanttChart(data) {
     if (!roomBookings[booking.room_name]) {
       roomBookings[booking.room_name] = [];
     }
+    booking.colorClass = pickRandomClass()
     roomBookings[booking.room_name].push(booking);
+  
+
+
   });
+
+  
+
 
   // Create table body (tbody) and populate rows
   const tableBody = document.createElement('tbody');
@@ -64,7 +96,7 @@ function generateGanttChart(data) {
 
   Object.keys(roomBookings).forEach(roomName => {
     const bookingRow = document.createElement('tr');
-console.log(roomName);
+// console.log(roomName);
     // Room name cell
     
     const roomCell = document.createElement('td');
@@ -76,14 +108,20 @@ console.log(roomName);
       const dayCell = document.createElement('td');
       const currentDate = new Date(currentYear, currentMonth, day);
 
-      // Check all bookings for this room
+      // Check all bookings for every room
       roomBookings[roomName].forEach(booking => {
         const startDate = new Date(booking.check_in);
         const endDate = new Date(booking.check_out);
-
+    
         if (currentDate >= startDate && currentDate <= endDate) {
           // Add a class for styling
-          dayCell.classList.add('occupied');
+          // Array of CSS class names
+
+
+// Example usage: Apply the random class to an element with the ID 'target-element'
+
+
+          dayCell.classList.add(booking.colorClass);
           dayCell.style.backgroundColor = booking.bg;
 
           dayCell.addEventListener('mousemove', (gantEv) => {

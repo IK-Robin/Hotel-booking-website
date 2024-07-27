@@ -191,7 +191,7 @@
               </div>
   
               <div class="d-flex justify-content-evenly mb-2">
-                <a href="#" class="btn btn-sm custom_bg text-white shadow-none"
+                <a href="books_room.php?room_id=$room_id &checkout&checkin="class="btn btn-sm custom_bg text-white shadow-none"
                   >Book Now</a
                 >
                 <a href="rooms_description.php?id=$room_id &checkout_date=&checkin&checkin_date=" class="btn btn-sm shadow-none btn-outline-dark"

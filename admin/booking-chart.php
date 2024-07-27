@@ -21,18 +21,16 @@ adminLogin();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User </title>
-   
+
     <link rel="stylesheet" href="css/booking_chart.css">
 
 </head>
 
 <body>
-
-    <?php require("inc/header.php"); ?>
+<?php require ("inc/header.php"); ?>
     <!-- dashbord content  -->
-    <div class="container-fluid">
-        <div class="row ">
-            <div class="col-lg-10 ms-auto p-4 overflow-hidden">
+    
+            <div class="col-lg-10 ms-auto p-4 ">
                 <h4>Booking Chart</h4>
 
                 <!-- create the chart  -->
@@ -41,12 +39,13 @@ adminLogin();
                 </div>
 
                 <div class="gantt_container">
-                    <div id="gantt_tooltip">
+                    <div id="gantt_tooltip"></div>
 
+                    <div class="table-wrapper">
+                        <table id="gantt-chart"></table>
                     </div>
-
-                    <table id="gantt-chart"></table>
                 </div>
+
 
 
             </div>
@@ -54,7 +53,7 @@ adminLogin();
 
 
 
-         
+
 
 
 
@@ -64,7 +63,7 @@ adminLogin();
     </div>
     </div>
 
-  <script src="js/booking-chart.js"></script>
+    <script src="js/booking-chart.js"></script>
 
 </body>
 

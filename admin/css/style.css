@@ -42,13 +42,13 @@ input[type="number"] {
     padding: 0 35px;
   }
 }
-.h-line{
+.h-line {
   width: 150px;
-  margin: 16PX  auto auto;
+  margin: 16px auto auto;
   height: 2px;
 }
 
-.custom_alert{
+.custom_alert {
   width: max-content;
   position: fixed;
   top: 80px;
@@ -56,14 +56,15 @@ input[type="number"] {
   z-index: 10000;
 }
 
-#dashbord_menu{
+#dashbord_menu {
   position: fixed;
   height: 100%;
 }
 
-@media  screen and (max-width:992px) {
-  #dashbord_menu{
-height: auto;
+@media screen and (max-width: 992px) {
+  #dashbord_menu {
+    height: auto;
     width: 100%;
   }
 }
+

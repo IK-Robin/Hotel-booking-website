@@ -27,9 +27,10 @@
 
 
   table {
-  border-collapse: collapse;
-  /* Remove borders between cells */
-}
+    border-collapse: collapse;
+    z-index: -111;
+    position: relative;
+  }
 
 th,
 td {
@@ -77,4 +78,61 @@ th {
   height: 100%;
   background-color: red;
   transform: translateX(-50%);
+}
+
+.top_header{
+  position:sticky;
+  top: 0; z-index: 10;
+}
+
+.sidebar_menus {
+  z-index: 11;
+  position: relative;
+}
+.table-wrapper {
+  overflow-x: auto; /* Enable horizontal scroll */
+  overflow-y: hidden; /* Disable vertical scroll */
+}
+
+/* random color picker  */
+/* style.css */
+
+.color1 {
+  background-color: #FF5733; /* Red */
+}
+
+.color2 {
+  background-color: #33FF57; /* Green */
+}
+
+.color3 {
+  background-color: #3357FF; /* Blue */
+}
+
+.color4 {
+  background-color: #FF33A1; /* Pink */
+}
+
+.color5 {
+  background-color: #A133FF; /* Purple */
+}
+
+.color6 {
+  background-color: #33FFF5; /* Cyan */
+}
+
+.color7 {
+  background-color: #FFB833; /* Orange */
+}
+
+.color8 {
+  background-color: #33FF8A; /* Light Green */
+}
+
+.color9 {
+  background-color: #FF338F; /* Magenta */
+}
+
+.color10 {
+  background-color: #3385FF; /* Light Blue */
 }
