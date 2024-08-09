@@ -12,6 +12,7 @@ define('ABOUT_FOLDER', 'about/');
 define('CAROSAL_FOLDER','carousel/');
 define('FACILITE_FOLDER','facilities/');
 define('ROOMS_FOLDER','rooms/');
+define('USER_PROFILE','user_profile/');
 
 
 
@@ -21,6 +22,7 @@ define('ABOUT_IMG_PATH_F', SITE_URL.'images/about/');
 define('CAROSEL_IMG_PATH', SITE_URL.'images/carousel/');
 define('FACILITIES_IMG_PATH', SITE_URL.'images/facilities/');
 define('ROOM_IMG_PATH', SITE_URL.'images/rooms/');
+define('USER_PROFILE_FONTEND', SITE_URL.'images/user_profile/');
 
 
 function filtaration($data){

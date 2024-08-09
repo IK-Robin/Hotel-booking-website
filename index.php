@@ -64,12 +64,12 @@
         <form action="rooms.php" method="GET">
           <div class="row align-items-end">
             <div class="col-lg-3 mb-3">
-              <label for="" class="form-label">Chekcout date
+              <label for="" class="form-label"> Check in date
               </label>
               <input required type="date" class="form-control shadow-none" name="checkIn" id="" />
             </div>
             <div class="col-lg-3 mb-3">
-              <label for="" class="form-label">check in date
+              <label for="" class="form-label">Chekcout date
               </label>
               <input required type="date" class="form-control shadow-none" name="check_out" id="" />
             </div>

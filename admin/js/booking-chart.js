@@ -80,7 +80,7 @@ function generateGanttChart(data) {
     if (!roomBookings[booking.room_name]) {
       roomBookings[booking.room_name] = [];
     }
-    booking.colorClass = pickRandomClass()
+ 
     roomBookings[booking.room_name].push(booking);
   
 
@@ -99,6 +99,7 @@ function generateGanttChart(data) {
 // console.log(roomName);
     // Room name cell
     
+    
     const roomCell = document.createElement('td');
     roomCell.textContent = roomName;
     bookingRow.appendChild(roomCell);
@@ -112,7 +113,7 @@ function generateGanttChart(data) {
       roomBookings[roomName].forEach(booking => {
         const startDate = new Date(booking.check_in);
         const endDate = new Date(booking.check_out);
-    
+       
         if (currentDate >= startDate && currentDate <= endDate) {
           // Add a class for styling
           // Array of CSS class names
@@ -120,8 +121,8 @@ function generateGanttChart(data) {
 
 // Example usage: Apply the random class to an element with the ID 'target-element'
 
-
-          dayCell.classList.add(booking.colorClass);
+          
+          dayCell.classList.add(colorClasses[booking.color_ind]);
           dayCell.style.backgroundColor = booking.bg;
 
           dayCell.addEventListener('mousemove', (gantEv) => {

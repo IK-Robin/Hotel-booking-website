@@ -101,18 +101,19 @@ $tootal_book_count = mysqli_fetch_assoc(select($total_booking_query, $total_book
 
 
     }
-}
+} 
 
 if (isset($_POST['book_now'])) {
 
 
     $frm_data = filtaration($_POST);
+    // add a random number variable 1 to 10 
+    $random_number = rand(0, 10);
+    $query_1 = "INSERT INTO `book_now`(`room_id`, `check_in`, `check_out`,  `order_id`,  `trans_amt`,`color_ind`) VALUES (?,?,?,?,?,?)";
 
-    $query_1 = "INSERT INTO `book_now`(`room_id`, `check_in`, `check_out`,  `order_id`,  `trans_amt`) VALUES (?,?,?,?,?)";
 
-
-    $book_val = [$frm_data['room_id'], $frm_data['checkin'], $frm_data['checkout'], $_SESSION['room']['order_id'], $_SESSION['room']['payment']];
-    inserts($query_1, $book_val, 'issis');
+    $book_val = [$frm_data['room_id'], $frm_data['checkin'], $frm_data['checkout'], $_SESSION['room']['order_id'], $_SESSION['room']['payment'],$random_number];
+    inserts($query_1, $book_val, 'issisi');
 
     $booking_id = mysqli_insert_id($conn);
 

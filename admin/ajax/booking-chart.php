@@ -23,6 +23,7 @@ if (isset($_POST['get_chart_data'])) {
             bn.room_id, 
             bn.check_in, 
             bn.check_out, 
+            bn.color_ind,
             bd.room_name, 
             bd.user_name
         FROM 
@@ -48,7 +49,8 @@ if (isset($_POST['get_chart_data'])) {
                 'check_in' => $row['check_in'],
                 'check_out' => $row['check_out'],
                 'room_name' => $row['room_name'],
-                'user_name' => $row['user_name']
+                'user_name' => $row['user_name'],
+                'color_ind' => $row['color_ind']
             ];
         }
         

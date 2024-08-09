@@ -56,6 +56,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 <script>
+  const register_path = 'ajax/login_register.php';
 function setActive(){
   const navbers = document.getElementById('navbers');
 const a_tags = navbers.getElementsByTagName('a');
@@ -67,6 +68,43 @@ for (let i = 0; i < a_tags.length; i++) {
   }
 }
 }
+
+// register user using from submit. 
+const register_form = document.getElementById("register_form");
+
+register_form.addEventListener('submit',ev =>{
+  ev.preventDefault();
+
+  // get from data  
+  const register_formData = new FormData(register_form);
+
+  register_formData.append('name',register_form.elements['name'].value);
+  register_formData.append('email',register_form.elements['email'].value);
+  register_formData.append('phone',register_form.elements['phone'].value);
+ 
+  register_formData.append('pincode',register_form.elements['pincode'].value);
+  register_formData.append('data_ofbarth',register_form.elements['data_ofbarth'].value);
+  register_formData.append('password',register_form.elements['password'].value);
+  register_formData.append('cpassword',register_form.elements['cpassword'].value);
+  register_formData.append('formFile',register_form.elements['formFile'].files[0]);
+  register_formData.append('register','');
+  // hide bootstrap modal 
+  const  myModal =  document.getElementById('registerModal');
+  const modal = bootstrap.Modal.getInstance(myModal);
+    modal.hide();
+  let xhr = new XMLHttpRequest();
+  xhr.open("POST",register_path,true);
+ 
+  xhr.onload = function(){
+    console.log(this.responseText);
+  }
+xhr.send(register_formData);
+
+});
+
+
+
+
 
 setActive();
 

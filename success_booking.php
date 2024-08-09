@@ -86,7 +86,7 @@ print_r($room);
 
   <?php require ("components/footer.php"); ?>
   <!-- Swiper JS -->
-  
+ 
 </body>
 
 </html>

@@ -111,7 +111,7 @@ $site_title = mysqli_fetch_assoc($data);
 
     <div class="modal fade " id="registerModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <form action="">
+            <form action="" id="register_form">
                 <div class="modal-content ">
                     <div class="modal-header">
                         <h5 class="modal-title d-flex align-items-center " id="exampleModalLabel"> <i
@@ -125,37 +125,41 @@ $site_title = mysqli_fetch_assoc($data);
                                 <div class="row">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Name</label>
-                                        <input type="text" class="form-control shadow-none" id="name">
+                                        <input 
+                                        name="name"
+                                        type="text" class="form-control shadow-none" id="name">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email</label>
-                                        <input type="text" class="form-control shadow-none" id="emain">
+                                        <input name="email" type="text" class="form-control shadow-none" id="emain">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="Phone" class="form-label">Phone Number</label>
-                                        <input type="number" class="form-control shadow-none" id="Phone">
+                                        <input name="phone" type="number" class="form-control shadow-none" id="Phone">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="formFile" class="form-label">cose file</label>
-                                        <input class="form-control shadow-none" type="file" id="formFile">
-                                </div>
+                                 
 
                                 <div class="col-md-6">
                                         <label for="pincode" class="form-label">pincode </label>
-                                        <input type="number" class="form-control shadow-none" id="pincode">
+                                        <input name="pincode" type="number" class="form-control shadow-none" id="pincode">
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="data_ofbarth" class="form-label">Date of Birth </label>
-                                        <input type="date" class="form-control shadow-none" id="data_ofbarth">
-                                    </div>
+                                    
                                     <div class="col-md-6">
                                         <label for="password" class="form-label">Passeowd </label>
-                                        <input type="password" class="form-control shadow-none" id="password">
+                                        <input name="password" type="password" class="form-control shadow-none" id="password">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="cpassword" class="form-label">Confarm Passeowd </label>
-                                        <input type="password" class="form-control shadow-none" id="cpassword">
+                                        <input name="cpassword" type="password" class="form-control shadow-none" id="cpassword">
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="data_ofbarth" class="form-label">Date of Birth </label>
+                                        <input name="data_ofbarth" type="date" class="form-control shadow-none" id="data_ofbarth">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="formFile" class="form-label">cose file</label>
+                                        <input name="formFile" class="form-control shadow-none" type="file" id="formFile">
+                                </div>
 
 
                             </div>
