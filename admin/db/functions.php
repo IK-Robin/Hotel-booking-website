@@ -69,9 +69,10 @@ function select($query,$value,$data_type){
 
     }else{
         echo "error";
-        mysqli_stmt_close();
+       
     }
 }
+
 
 
 function update($query,$value,$data_type) {

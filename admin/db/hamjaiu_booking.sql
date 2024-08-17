@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2024 at 10:25 AM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.0.28
+-- Generation Time: Aug 17, 2024 at 05:08 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -404,6 +404,26 @@ INSERT INTO `user_query` (`sr_no`, `name`, `email`, `subject`, `message`, `date`
 (42, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 0),
 (43, 'dsf', 'sdf@sdf', 'dsf', 'sdf', '2024-05-11', 1),
 (45, 'robin', '887@gmail.com', '8773534', 'lkjfsdjf sodjf sadlifj olsadjflkjsdl jflasdjfjsadljfljkasdjfljasdofj', '2024-05-31', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `user_register`
+--
+
+CREATE TABLE `user_register` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `phone_num` int(11) NOT NULL,
+  `user_pass` varchar(200) NOT NULL,
+  `user_token` varchar(200) NOT NULL,
+  `token_expair` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT 1,
+  `datetime` datetime NOT NULL DEFAULT current_timestamp(),
+  `profile` varchar(150) NOT NULL,
+  `isO_verified` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Indexes for dumped tables
