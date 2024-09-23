@@ -102,13 +102,15 @@ function deleteImage($img, $folder)
         return false;
     }
 }
-
-// optimize user image 
-function optimize_user_Image($image, $folder)
+function optimize_user_image($image, $folder)
 {
-    $valid_image = ['image/jpeg', 'image/png', 'image/webp'];
+    if (empty($image) || $image['error'] !== UPLOAD_ERR_OK) {
+        return; // Do nothing if no image is provided
+    }
 
+    $valid_image = ['image/jpeg', 'image/png', 'image/webp'];
     $image_mime = $image['type'];
+
     if (!in_array($image_mime, $valid_image)) {
         return 'inv_img';
     } else if (($image['size'] / (1024 * 1024)) > 2) {
@@ -117,29 +119,32 @@ function optimize_user_Image($image, $folder)
         $image_name = time() . '_' . $image['name'];
         $image_tmp_name = $image['tmp_name'];
 
+        $image_folder = UPLOAD_IMAGE_PATH . $folder;
 
-
-
-
-        $image_folder  = UPLOAD_IMAGE_PATH . $folder . $image_name;
-        $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
-        $rname = 'img_' . random_int(1193, 9234998) . "jpeg";
-
-        if ($ext == 'png' || $ext = 'PNG') {
-            $img = imagecreatefrompng($image['tmp_name']);
-        } else if ($ext == 'webp' || $ext = 'WEBP') {
-            $img = imagecreatefromwebp($image['tmp_name']);
-        } else if ($ext == 'jpg' || $ext = 'JPG') {
-            $img = imagecreatefromjpeg($image['tmp_name']);
+        // Ensure the folder exists, if not, create it
+        if (!is_dir($image_folder)) {
+            mkdir($image_folder, 0777, true); // Create directory with write permissions
         }
 
+        $image_path = $image_folder . $image_name;
+        $ext = pathinfo($image['name'], PATHINFO_EXTENSION);
+        $rname = 'img_' . random_int(1193, 9234998) . ".jpeg";
 
+        // Optimize and convert the image based on its type
+        if (strtolower($ext) === 'png') {
+            $img = imagecreatefrompng($image_tmp_name);
+        } else if (strtolower($ext) === 'webp') {
+            $img = imagecreatefromwebp($image_tmp_name);
+        } else if (strtolower($ext) === 'jpg' || strtolower($ext) === 'jpeg') {
+            $img = imagecreatefromjpeg($image_tmp_name);
+        }
 
-        if (imagejpeg($img, $image_folder, 75)) {
+        // Save the optimized image
+        if (imagejpeg($img, $image_path, 75)) {
             return $rname;
         } else {
             return 'upd_failed';
         }
-        // return $image_name;
     }
 }
+

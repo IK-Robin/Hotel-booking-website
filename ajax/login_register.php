@@ -24,7 +24,7 @@ if (isset($_POST['register'])) {
 
     // Upload user image to the server
     $profile_img = optimize_user_Image($_FILES['formFile'], USER_PROFILE);
-
+    echo $profile_img;
     if ($profile_img == 'inv_img') {
         exit('Invalid image format');
     } else if ($profile_img == 'inv_size') {
